@@ -29,5 +29,5 @@ server.listen(port, hostName, () => {
 });
 
 io.on('connection', (socket) => {
-
+    socket.emit('test', {teste:'teste'});
 });
