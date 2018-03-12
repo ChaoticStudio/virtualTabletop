@@ -1,0 +1,17 @@
+.top-bar, .menu {
+    background-color: #343a40;
+}
+
+.menu-text {
+    color: #fff;
+}
+
+nav div ul li a {
+    color: rgba(255,255,255,.5);
+    transition: color 0.1s linear;
+    font-weight: 60;
+}
+
+nav div ul li:hover a {
+    color: rgba(255,255,255,1);
+}
