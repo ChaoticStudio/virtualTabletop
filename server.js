@@ -9,7 +9,7 @@ const express = require('express'),
     api = require('./server/routes/api'),
     port = 3000,
     //hostName = 'localhost';
-    hostName = '192.168.1.102';
+    hostName = '192.168.1.100';
 
 // Where the angular code is placed, gives express access to dist folder
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -29,6 +29,4 @@ server.listen(port, hostName, () => {
     console.log('Server runnig on: '+ hostName + ':' + port);
 });
 
-io.on('connection', (socket) => {
-    socket.emit('test', {teste:'teste'});
-});
+//io.use('/api', api);

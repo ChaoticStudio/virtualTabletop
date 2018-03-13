@@ -18,4 +18,10 @@ export class TabletopCenterComponent implements OnInit {
     this._chatService.getMessages().subscribe((resChatData) => this.messages = resChatData);
   }
 
+  onSubmitSendMessage(message: Message) {
+    this._chatService.addMessage(message).subscribe(resNewMessage => {
+      this.messages.push(resNewMessage);
+    });
+  }
+
 }

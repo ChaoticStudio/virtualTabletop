@@ -12,7 +12,11 @@ mongoose.connect(db, (err) => {
         console.log('Connected with no errors...');
     }
 });
-
+/*
+io.on('connection', (socket) => {
+    socket.emit('test', {teste:'teste'});
+});
+*/
 router.get('/messages', (req, res) => {
     console.log('Get request for chat history');
     Message.find({}).exec((err, messages) => {
@@ -35,6 +39,7 @@ router.post('/message', (req, res) => {
             console.log('Error saving message');
         } else {
             res.json(insertedMessage);
+            
         }
     });
 });

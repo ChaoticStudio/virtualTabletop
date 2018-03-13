@@ -1,6 +1,6 @@
 <div class="grid-x grid-padding-y grid-margin-x">
   <div class="cell large-3">
-    <app-chat [messages]="messages"></app-chat>
+    <app-chat [messages]="messages" (atSubmitSendMessage)="onSubmitSendMessage($event)"></app-chat>
   </div>
   <div class="cell large-9">
     <app-tabletop></app-tabletop>

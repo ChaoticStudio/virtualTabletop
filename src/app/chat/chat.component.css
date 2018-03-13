@@ -1,8 +1,15 @@
-button{
-    margin: 0;
-    margin-left: 1rem;
+.grid-container{
+    padding: 0;
 }
 
 .text-center{
     margin: auto;
+}
+
+h4, button {
+    margin: 0;
+}
+
+.card-section{
+    height: 20rem;
 }
