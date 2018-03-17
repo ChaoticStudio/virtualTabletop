@@ -1,36 +1,20 @@
-<div>
-  <div class="card">
-    <div class="card-divider">
-      <div class="grid-container">
-        <div class="grid-x">
-          <div class="small-10 cell">
-            <h4>TableTOP Chat</h4>
-          </div>
-          <div class="small-2 cell">
-            <button type="button" class="alert button">Clear</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-section">
-      <div *ngFor="let message of messages">
-        <p class="chat-message">
-          {{message.name}}: {{message.text}}
-        </p>
-      </div>
-    </div>
+<div id="utils">
+  <div class="grid-x">
+    <button id="minimize" class="large-2 cell button"><</button>
+    <button id="chat" class="large-2 cell button">Chat</button>
+    <button id="sheet" class="large-2 cell button">Sheet</button>
+    <button id="tools" class="large-2 cell button">Tools</button>
+    <button id="configs" class="large-2 cell button">Config</button>
+    <button id="clear" class="large-2 cell alert button">Clear</button>
   </div>
-  <form #form="ngForm" (ngSubmit)="sendMessage(form.value)">
-    <div class="grid-x">
-      <div class="small-8 cell">
-        <input type="text" id="name" required name="name" placeholder="Enter a name..." ngModel>
+  <div id="status"></div>
+  <div id="chatbox">
+      <input type="text" id="username" placeholder="Enter name...">
+      <div class="card">
+          <div id="messages" class="card-section">
+
+          </div>
       </div>
-      <div class="small-4 cell">
-        <button type="submit" class="button">Enviar</button>
-      </div>
-      <div class="small-12 cell">
-        <textarea rows="2" id="text" required name="text" placeholder="Enter a message..." ngModel></textarea>
-      </div>
-    </div>
-  </form>
+      <textarea id="textarea" placeholder="Enter message..."></textarea>
+  </div>
 </div>

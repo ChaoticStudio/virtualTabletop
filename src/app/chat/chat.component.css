@@ -1,15 +1,14 @@
-.grid-container{
-    padding: 0;
+#messages {
+    overflow: auto;
+    height: 26rem;
 }
 
-.text-center{
-    margin: auto;
-}
-
-h4, button {
+#utils {
     margin: 0;
+    height: 100%;
 }
 
-.card-section{
-    height: 20rem;
+button {
+    margin: 0;
+    padding: 15px 5px 15px 5px;
 }

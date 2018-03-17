@@ -15,3 +15,8 @@ nav div ul li a {
 nav div ul li:hover a {
     color: rgba(255,255,255,1);
 }
+
+#container {
+    margin: 0;
+    padding: 0;
+}
