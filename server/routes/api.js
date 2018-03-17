@@ -45,11 +45,6 @@ module.exports = {
     // Witchcraft to use socketIO from here
     socketIo: (io) => {
         io.on('connection', socket => {
-
-            // Create function to send status
-            sendStatus = function(s){
-                socket.emit('status', s);
-            }
              // Get chats from mongo collection
             Message.find({}).exec((err, messages) => {
                 if(err){
@@ -65,12 +60,12 @@ module.exports = {
                 // Check for name and message
                 if(name == '' || message == ''){
                     // Send error status
-                    sendStatus('Please enter a name and message');
+                    socket.emit('status', 'Please enter a name and message');
                 } else {
                     // Insert message
                     io.emit('output', [data]);
                     // Send status object
-                    sendStatus({
+                    socket.emit('status', {
                         message: 'Message sent',
                         clear: true
                     });

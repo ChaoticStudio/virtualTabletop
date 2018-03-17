@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this._chatService.getMessages().subscribe((resChatData) => this.messagesFromDB = resChatData);
-    const host = '192.168.1.102',// 'localhost',
+    const host = '25.52.151.204', // 'localhost',
       port = 3000,
       socket = socketIo('http://' + host + ':' + port),
       status = <HTMLDivElement>document.getElementById('status'),
@@ -54,8 +54,13 @@ export class ChatComponent implements OnInit {
           for ( let x = 0; x < data.length; x++) {
             // Build out message div
             const message = document.createElement('div');
+            const name = document.createElement('span');
+            name.setAttribute('id', 'text-bold');
+            name.textContent = data[x].name;
+            name.style.setProperty('font-weight', 'bolder');
             message.setAttribute('class', 'chatMessage');
-            message.textContent = data[x].name + ': ' + data[x].message;
+            message.appendChild(name);
+            message.appendChild(document.createTextNode(': ' + data[x].message));
             messages.appendChild(message);
             messages.insertBefore(message, messages.firstChild);
           }

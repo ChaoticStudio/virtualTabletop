@@ -1,6 +1,6 @@
 #messages {
     overflow: auto;
-    height: 26rem;
+    max-height: 400px;
 }
 
 #utils {
