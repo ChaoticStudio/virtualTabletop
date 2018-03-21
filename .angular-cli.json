@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/foundation-sites/dist/css/foundation.min.css"        
+        "../node_modules/foundation-sites/dist/css/foundation.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

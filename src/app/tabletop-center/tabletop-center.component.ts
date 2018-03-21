@@ -1,27 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from '../message';
-import { ChatService } from './../chat.service';
 
 @Component({
   selector: 'app-tabletop-center',
   templateUrl: './tabletop-center.component.html',
   styleUrls: ['./tabletop-center.component.css'],
-  providers: [ChatService]
 })
 export class TabletopCenterComponent implements OnInit {
 
-  messages: Array<Message>;
 
-  constructor(private _chatService: ChatService) { }
+  constructor() { }
 
   ngOnInit() {
-    this._chatService.getMessages().subscribe((resChatData) => this.messages = resChatData);
-  }
 
-  onSubmitSendMessage(message: Message) {
-    this._chatService.addMessage(message).subscribe(resNewMessage => {
-      this.messages.push(resNewMessage);
-    });
   }
 
 }

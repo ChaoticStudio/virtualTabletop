@@ -12,11 +12,7 @@ mongoose.connect(db, (err) => {
         console.log('Connected with no errors...');
     }
 });
-/*
-io.on('connection', (socket) => {
-    socket.emit('test', {teste:'teste'});
-});
-*/
+
 router.get('/messages', (req, res) => {
     console.log('Get request for chat history');
     Message.find({}).exec((err, messages) => {
@@ -32,16 +28,58 @@ router.post('/message', (req, res) => {
     console.log('Post a message');
     let newMessage = new Message();
     newMessage.name = req.body.name;
-    newMessage.text = req.body.text;
-
-    newMessage.save((err, insertedMessage) => {
-        if(err){
-            console.log('Error saving message');
-        } else {
-            res.json(insertedMessage);
-            
-        }
-    });
+    newMessage.message = req.body.message;
+    if(newMessage.name !== '' && newMessage.message !== ''){
+        newMessage.save((err, insertedMessage) => {
+            if(err){
+                console.log('Error saving message');
+            } else {
+                res.json(insertedMessage);
+            }
+        });
+    }
 });
 
-module.exports = router;
+module.exports = {
+    router,
+    // Witchcraft to use socketIO from here
+    socketIo: (io) => {
+        io.on('connection', socket => {
+             // Get chats from mongo collection
+            Message.find({}).exec((err, messages) => {
+                if(err){
+                    throw err;
+                }
+                // Emit the messages                
+                socket.emit('output', messages);
+            });
+            // Handle input events
+            socket.on('input', (data) => {
+                let name = data.name;
+                let message = data.message;
+                // Check for name and message
+                if(name == '' || message == ''){
+                    // Send error status
+                    socket.emit('status', 'Please enter a name and message');
+                } else {
+                    // Insert message
+                    io.emit('output', [data]);
+                    // Send status object
+                    socket.emit('status', {
+                        message: 'Message sent',
+                        clear: true
+                    });
+                }
+            });
+
+            // Handle clear
+            socket.on('clear', function(data){
+                // Remove all chats from collection
+                Message.remove({}, function(){
+                    // Emit cleared
+                    socket.emit('cleared');
+                });
+            });
+        });
+    }
+}
