@@ -13,15 +13,20 @@ export class TabletopComponent implements OnInit {
     this.generateGrid();
   }
 
+  resize() {
+    document.getElementById('canvas').style.maxHeight = window.innerHeight - 55 + 'px';
+  }
   generateGrid() {
-    const canvas = <HTMLCanvasElement>document.getElementById('grid'),
+    const canvasContainer = <HTMLDivElement>document.getElementById('canvas'),
+          canvas = <HTMLCanvasElement>document.getElementById('grid'),
           ctx = canvas.getContext('2d');
     let canvasHeight,
         canvasWidth,
         zoom,
         horizontalSquares,
         verticalSquares;
-
+    window.addEventListener('resize', this.resize);
+    canvasContainer.style.maxHeight = window.innerHeight - 55 + 'px';
     horizontalSquares = 25;
     verticalSquares = 25;
     zoom = 75; // square size in pixels
