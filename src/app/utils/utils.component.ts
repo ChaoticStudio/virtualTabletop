@@ -4,12 +4,12 @@ import { ChatService } from './../chat.service';
 import { Message } from '../message';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css'],
+  selector: 'app-utils',
+  templateUrl: './utils.component.html',
+  styleUrls: ['./utils.component.css'],
   providers: [ChatService]
 })
-export class ChatComponent implements OnInit {
+export class UtilsComponent implements OnInit {
 
   messagesFromDB: Array<Message>;
 
@@ -23,10 +23,10 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this._chatService.getMessages().subscribe((resChatData) => this.messagesFromDB = resChatData);
-    const host = '25.52.151.204', // 'localhost',
-      port = 3000,
-      socket = socketIo('http://' + host + ':' + port),
-      status = <HTMLDivElement>document.getElementById('status'),
+    const host = 'localhost',
+      port     = 3000,
+      socket   = socketIo('http://' + host + ':' + port),
+      status   = <HTMLDivElement>document.getElementById('status'),
       messages = <HTMLDivElement>document.getElementById('messages'),
       textarea = <HTMLTextAreaElement>document.getElementById('textarea'),
       username = <HTMLInputElement>document.getElementById('username'),

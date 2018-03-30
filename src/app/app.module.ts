@@ -6,19 +6,21 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ChatComponent } from './chat/chat.component';
+import { UtilsComponent } from './utils/utils.component';
 import { HomeComponent } from './home/home.component';
 import { TabletopComponent } from './tabletop/tabletop.component';
 import { TabletopCenterComponent } from './tabletop-center/tabletop-center.component';
+import { ToolsComponent } from './tools/tools.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent,
+    UtilsComponent,
     HomeComponent,
     TabletopComponent,
-    TabletopCenterComponent
+    TabletopCenterComponent,
+    ToolsComponent
   ],
   imports: [
     BrowserModule,
