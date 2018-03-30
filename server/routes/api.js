@@ -40,46 +40,4 @@ router.post('/message', (req, res) => {
     }
 });
 
-module.exports = {
-    router,
-    // Witchcraft to use socketIO from here
-    socketIo: (io) => {
-        io.on('connection', socket => {
-             // Get chats from mongo collection
-            Message.find({}).exec((err, messages) => {
-                if(err){
-                    throw err;
-                }
-                // Emit the messages                
-                socket.emit('output', messages);
-            });
-            // Handle input events
-            socket.on('input', (data) => {
-                let name = data.name;
-                let message = data.message;
-                // Check for name and message
-                if(name == '' || message == ''){
-                    // Send error status
-                    socket.emit('status', 'Please enter a name and message');
-                } else {
-                    // Insert message
-                    io.emit('output', [data]);
-                    // Send status object
-                    socket.emit('status', {
-                        message: 'Message sent',
-                        clear: true
-                    });
-                }
-            });
-
-            // Handle clear
-            socket.on('clear', function(data){
-                // Remove all chats from collection
-                Message.remove({}, function(){
-                    // Emit cleared
-                    socket.emit('cleared');
-                });
-            });
-        });
-    }
-}
+module.exports = router;
