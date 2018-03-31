@@ -25,6 +25,7 @@ export class TabletopComponent implements OnInit {
         zoom,
         horizontalSquares,
         verticalSquares;
+
     window.addEventListener('resize', this.resize);
     canvasContainer.style.maxHeight = window.innerHeight - 55 + 'px';
     horizontalSquares = 25;
