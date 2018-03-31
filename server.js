@@ -6,9 +6,9 @@ const express = require('express'),
     io = socketIo(server),
     bodyParser = require('body-parser'),
     path = require('path'),
-    api = require('./server/routes/api').router,
+    api = require('./server/routes/api'),
     port = 3000,
-    hostName = '25.52.151.204'// 'localhost';
+    hostName = 'localhost';
 
 // Where the angular code is placed, gives express access to dist folder
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -28,5 +28,4 @@ server.listen(port, hostName, () => {
     console.log('Server runnig on: '+ hostName + ':' + port);
 });
 
-// Makes the io visible to the api
-require('./server/routes/api').socketIo(io);
+require('./server/routes/socket').socket(io);

@@ -13,5 +13,4 @@ export class TabletopCenterComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

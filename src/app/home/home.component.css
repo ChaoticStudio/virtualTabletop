@@ -1,3 +1,124 @@
-.callout {
-    margin-top: 1rem;
+@charset 'uft-8';
+@import url('https://fonts.googleapis.com/css?family=Electrolize|Press+Start+2P');
+
+.container{
+    margin: 0;
+    font-family: 'Electrolize', sans-serif;
+    background: darkorange;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 1em 0;
+}
+
+p {
+    margin: 0;
+    padding: .5em 0;
+}
+
+h1{
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: #ffffff 2px 2px;
+}
+
+h2, h3 {
+    font-family: 'Electrolize', sans-serif;
+}
+
+#header{
+    min-height: 450px;
+}
+
+#header .bg-image{
+    position: absolute;
+    background: url('../../assets/kk_sword.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+}
+
+#header h1 {
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+
+#header .content-wrap,
+#section-a .content-wrap {
+    padding: 0 1.5em;
+}
+
+#section-a ul,
+#section-b ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#section-a li,
+#section-b li {
+    margin-bottom: 1em;
+    background: #fff;
+    color: #333;
+}
+
+#section-a,
+#section-c {
+    background: #333;
+    color: #fff;
+    padding-bottom: 2em;
+}
+
+#section-a h1,
+#section-c h1 {
+    text-shadow: #000 2px 2px;
+}
+
+#section-b {
+    padding: 2em 1em 1em;
+}
+
+.card-content {
+    padding: 1.5em;
+}
+
+#footer {
+    padding: 2em;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+@media(min-width: 700px){
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+    }
+
+    .content-wrap, 
+    #section-a ul, 
+    #section-b ul {
+        grid-column: 2/4;        
+    }
+
+    #section-b ul {
+        display: flex;
+    }
+
+    #section-b li {
+        min-width: 31%;
+        justify-content: space-around;
+    }
+
 }
