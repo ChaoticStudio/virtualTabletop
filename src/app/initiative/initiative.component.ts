@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-initiative',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitiativeComponent implements OnInit {
 
+  turnMembers = 0;
+  list;
+
   constructor() { }
 
   ngOnInit() {
+    this.list = <HTMLDivElement>document.getElementById('initItemList');
   }
 
   roll20() {
@@ -17,15 +22,15 @@ export class InitiativeComponent implements OnInit {
   }
 
   addToTurnMember() {
-    const list =       <HTMLDivElement>document.getElementById('initItemList'),
-          name =      (<HTMLInputElement>document.getElementById('initName')).value;
+    const name =     (<HTMLInputElement>document.getElementById('initName')).value,
+          id = this.turnMembers++;
 
     const newElement = (element) => {
       return document.createElement(element);
     };
 
     let initiative = (<HTMLInputElement>document.getElementById('initRoll')).value;
-    if (initiative != null || initiative < '1') {
+    if (initiative === '') {
       initiative = String(this.roll20());
     }
 
@@ -53,17 +58,23 @@ export class InitiativeComponent implements OnInit {
     item.appendChild(itemName);
     item.appendChild(itemValue);
     itemBtn.innerHTML = '&#8635;';
+    itemBtn.addEventListener('click', () => this.roll20());
     item.appendChild(itemBtn);
     span.innerHTML = '&times;';
     closeBtn.appendChild(span);
-    // closeBtn.addEventListener('click', this.deleteFromTurnOrder(card.getNode()));
+    closeBtn.addEventListener('click', () => this.deleteFromTurnOrder(id) );
     card.appendChild(item);
     card.appendChild(closeBtn);
-    list.appendChild(card);
+    card.setAttribute('id', id);
+    this.list.appendChild(card);
   }
 
-  deleteFromTurnOrder(self) {
-      self.parentNode.removeChild(self);
+  deleteFromTurnOrder(theOne2bRemoved) {
+    const node = document.getElementById(theOne2bRemoved);
+    console.log('xablau');
+    if (node !== null) {
+      node.parentNode.removeChild(node);
+    }
   }
 
 }
