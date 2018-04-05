@@ -22,7 +22,9 @@
         "styles.css",
         "../node_modules/foundation-sites/dist/css/foundation.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

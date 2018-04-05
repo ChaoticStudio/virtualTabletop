@@ -1,0 +1,28 @@
+#tabletop-center{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+#center-utils{
+    grid-row: 1;
+}
+
+#center-tabletop{
+    grid-row: 2;
+}
+
+@media (min-width: 700px){
+    #tabletop-center{
+        display: grid;
+        grid-template-columns: 25% 75%;
+    }
+    
+    #center-utils{
+        grid-column: 1;
+    }
+    
+    #center-tabletop{
+        grid-column: 2;
+        grid-row: 1;
+    }
+}

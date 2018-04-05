@@ -1,0 +1,74 @@
+#initiative-container{
+    width: 310px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.input{
+    display: grid;
+    padding: 5px;
+    margin: 0;
+    background-color: rgb(37, 37, 37);
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+#initName{
+    grid-column: 1;
+    margin: 0;
+}
+
+#initRoll{
+    grid-column: 2;
+    margin: 0;
+}
+
+#initBtn{
+    grid-column: 3;
+    margin: 0;
+}
+
+:host ::ng-deep .callout{
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+:host ::ng-deep #initItemList{
+    padding: 5px;
+    overflow: auto;
+    height: 300px;
+}
+
+:host ::ng-deep .initItem{
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr;
+}
+
+:host ::ng-deep #initItemName{
+    margin: 5px;
+}
+
+:host ::ng-deep #initItemName{
+    grid-column: 1;
+    line-height: 40px;
+    margin: 0;
+}
+
+:host ::ng-deep #initItemValue{
+    grid-column: 2;
+    line-height: 40px;
+    margin: 0;
+}
+
+:host ::ng-deep #initItemBtn{
+    grid-column: 3;
+    font-size: 15px;
+    margin: 0;
+}
+
+:host ::ng-deep .close-button{
+    grid-column: 4;
+    line-height: 25px;
+    text-align: right;
+    margin: 0;
+}

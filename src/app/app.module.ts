@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { TabletopComponent } from './tabletop/tabletop.component';
 import { TabletopCenterComponent } from './tabletop-center/tabletop-center.component';
 import { ToolsComponent } from './tools/tools.component';
+import { InitiativeComponent } from './initiative/initiative.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ToolsComponent } from './tools/tools.component';
     HomeComponent,
     TabletopComponent,
     TabletopCenterComponent,
-    ToolsComponent
+    ToolsComponent,
+    InitiativeComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

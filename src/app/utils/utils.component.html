@@ -1,20 +1,15 @@
 <div id="utils">
-  <div class="grid-x">
-    <button id="minimize" class="small-2 large-2 cell button"><</button>
-    <button id="chat" class="small-2 large-2 cell button">Chat</button>
-    <button id="sheet" class="small-2 large-2 cell button">Sheet</button>
-    <button id="tools" class="small-2 large-2 cell button">Tools</button>
-    <button id="configs" class="small-2 large-2 cell button">Config</button>
-    <button id="clear" class="small-2 large-2 cell alert button">Clear</button>
+  <div class="menu">
+    <button (click)="collapse()" id="minimize" class="button"> &#8918; </button>
+    <button (click)="setTab(1)"  id="chat"     class="button">Chat</button>
+    <button (click)="setTab(2)"  id="sheet"    class="button">Sheet</button>
+    <button (click)="setTab(3)"  id="tools"    class="button">Tools</button>
+    <button (click)="setTab(4)"  id="configs"  class="button">Config</button>    
   </div>
-  <div id="status"></div>
-  <div id="chatbox">
-      <input type="text" id="username" placeholder="Enter name...">
-      <div class="card">
-          <div id="messages" class="card-section">
-
-          </div>
-      </div>
-      <textarea id="textarea" placeholder="Enter message..."></textarea>
+  <div class="tabs" *ngIf="option != 0">
+    <div class="chat"    *ngIf="option == 1"> <app-chat></app-chat> </div>
+    <div class="sheet"   *ngIf="option == 2"> Aba das fichas </div>
+    <div class="tools"   *ngIf="option == 3"> <app-tools></app-tools> </div>
+    <div class="configs" *ngIf="option == 4"> Aba das configurações </div>
   </div>
 </div>
