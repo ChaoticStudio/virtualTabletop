@@ -6,9 +6,14 @@
       <li><a routerLink="/tabletop" routerLinkActive="active-link">Tabletop</a></li>
       <li><a routerLink="/tools" routerLinkActive="active-link">RPG Tools</a></li>
       <li><a routerLink="/events" routerLinkActive="active-link">events</a></li>
-      <li><a routerLink="/special" routerLinkActive="active-link">special</a></li>
-      <li><a routerLink="/login" routerLinkActive="active-link">Login</a></li>
-      <li><a routerLink="/register" routerLinkActive="active-link">Register</a></li>
+      <li><a routerLink="/special" routerLinkActive="active-link">special</a></li>      
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+        <li *ngIf="!_authService.loggedIn()"><a routerLink="/login" routerLinkActive="active-link">Login</a></li>
+        <li *ngIf="!_authService.loggedIn()"><a routerLink="/register" routerLinkActive="active-link">Register</a></li>
+        <li *ngIf="_authService.loggedIn()"><a (click)="_authService.logoutUser()">Logout</a></li>
     </ul>
   </div>
 </nav>
