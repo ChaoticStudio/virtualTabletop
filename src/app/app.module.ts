@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,7 +14,12 @@ import { TabletopCenterComponent } from './tabletop-center/tabletop-center.compo
 import { ToolsComponent } from './tools/tools.component';
 import { InitiativeComponent } from './initiative/initiative.component';
 import { ChatComponent } from './chat/chat.component';
-
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { EventsComponent } from './events/events.component';
+import { SpecialEventsComponent } from './special-events/special-events.component';
+import { AuthService } from './auth.service';
+import { EventService } from './event.service';
 
 @NgModule({
   declarations: [
@@ -24,15 +30,20 @@ import { ChatComponent } from './chat/chat.component';
     TabletopCenterComponent,
     ToolsComponent,
     InitiativeComponent,
-    ChatComponent
+    ChatComponent,
+    RegisterComponent,
+    LoginComponent,
+    EventsComponent,
+    SpecialEventsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

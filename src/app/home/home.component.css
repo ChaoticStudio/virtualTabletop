@@ -39,19 +39,23 @@ h2, h3 {
     min-height: 450px;
 }
 
-#header .bg-image{
+.bg-image{
     position: absolute;
-    background: url('../../assets/kk_sword.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
+    /*background: url('http://via.placeholder.com/450');
+    background-position: left;
+    background-repeat: no-repeat;*/
     width: 100%;
     height: 450px;
-    z-index: -1;
 }
 
 #header h1 {
     padding-top: 100px;
     padding-bottom: 0;
+}
+
+.content-wrap{
+    position: relative;
+    z-index: 1;
 }
 
 #header .content-wrap,
@@ -89,8 +93,17 @@ h2, h3 {
     padding: 2em 1em 1em;
 }
 
-.card-content {
+.card-content {    
     padding: 1.5em;
+}
+
+.card-content p {
+    padding: 1em 1em 0;
+    text-align: justify;
+}
+
+textarea {
+    resize: none;
 }
 
 #footer {
@@ -104,12 +117,30 @@ h2, h3 {
     .grid{
         display: grid;
         grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 
+    
     .content-wrap, 
-    #section-a ul, 
+    #section-a ul,
     #section-b ul {
-        grid-column: 2/4;        
+        grid-column: 2/4;
+    }
+
+    #section-a ul:nth-child(odd){
+        grid-column: 1;
+    }
+    #section-a ul:nth-child(even){
+        grid-column: 2;
+    }
+
+    .card-content{
+        display: flex;
+        align-items: center;
+    }
+    
+    .card-content p {
+        padding: 0 0 0 1em;
     }
 
     #section-b ul {
