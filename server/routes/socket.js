@@ -1,5 +1,7 @@
 const Message = require('../modules/message'),
+      CharacterSheet = require('../modules/character-sheet'),
       mongoose = require('mongoose'),
+      db = 'mongodb://michael.mucelin:123456789@ds249398.mlab.com:49398/virtualtabletop'; //ignore
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
@@ -19,9 +21,18 @@ module.exports = {
                 if(err){
                     throw err;
                 }
-                // Emit the messages                
+                // Emit the messages
                 socket.emit('output', messages);
             });
+
+            CharacterSheet.findOne({}).exec((err, sheet) => {
+                if(err){
+                    throw err;
+                }
+                // Emit the messages
+                socket.emit('outputSheet', sheet);
+            });
+
             // Handle input events
             socket.on('input', (data) => {
                 let name = data.name;

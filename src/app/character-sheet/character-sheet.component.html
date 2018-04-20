@@ -1,0 +1,12 @@
+<div class="character_sheet_display" *ngFor="let key of characterSheetKeys">
+  <div class="label">{{ key }}</div>
+  <div class="label value">{{ characterSheetObject[key] }}</div>
+</div>
+<hr/>
+<div class="character_sheet_editor">
+  <form>
+    <input type="text" id="character-sheet-owner" placeholder="Nome">
+    <textarea id="character-test-input" placeholder="Objeto"></textarea>
+    <input class="small-2 large-2 cell success button" type="submit" value="Enviar" (click)="saveFields()">
+  </form>
+</div>

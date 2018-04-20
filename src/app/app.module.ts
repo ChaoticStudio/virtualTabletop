@@ -13,6 +13,7 @@ import { TabletopCenterComponent } from './tabletop-center/tabletop-center.compo
 import { ToolsComponent } from './tools/tools.component';
 import { InitiativeComponent } from './initiative/initiative.component';
 import { ChatComponent } from './chat/chat.component';
+import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ChatComponent } from './chat/chat.component';
     TabletopCenterComponent,
     ToolsComponent,
     InitiativeComponent,
-    ChatComponent
+    ChatComponent,
+    CharacterSheetComponent
   ],
   imports: [
     BrowserModule,
