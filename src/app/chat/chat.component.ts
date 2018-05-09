@@ -16,7 +16,7 @@ export class ChatComponent implements OnInit {
   constructor(private _chatService: ChatService) { }
 
   postMessage(message: Message) {
-    this._chatService.addMessage(message).subscribe(resNewMessage => {
+    this._chatService.addMessage(message).subscribe((resNewMessage) => {
       this.messagesFromDB.push(resNewMessage);
     });
   }
