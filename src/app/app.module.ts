@@ -14,6 +14,7 @@ import { TabletopCenterComponent } from './tabletop-center/tabletop-center.compo
 import { ToolsComponent } from './tools/tools.component';
 import { InitiativeComponent } from './initiative/initiative.component';
 import { ChatComponent } from './chat/chat.component';
+import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
@@ -33,6 +34,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ToolsComponent,
     InitiativeComponent,
     ChatComponent,
+    CharacterSheetComponent
     RegisterComponent,
     LoginComponent,
     EventsComponent,

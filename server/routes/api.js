@@ -3,6 +3,7 @@ const express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     Message = require('../modules/message'),
+    CharacterSheet = require('../modules/character-sheet'),
     User = require('../modules/user');
     //db = 'mongodb://user:psw@host:port/database'; 
 
@@ -156,7 +157,7 @@ router.get('/special', verifyToken, (req, res) => {
 router.get('/messages', (req, res) => {
     console.log('Get request for chat history');
     Message.find({}).exec((err, messages) => {
-        if(err){
+        if (err) {
             console.log('Error retrieving messages');
         } else {
             res.json(messages);
@@ -169,9 +170,9 @@ router.post('/message', (req, res) => {
     let newMessage = new Message();
     newMessage.name = req.body.name;
     newMessage.message = req.body.message;
-    if(newMessage.name !== '' && newMessage.message !== ''){
+    if (newMessage.name !== '' && newMessage.message !== '') {
         newMessage.save((err, insertedMessage) => {
-            if(err){
+            if (err) {
                 console.log('Error saving message');
             } else {
                 res.json(insertedMessage);
@@ -179,5 +180,37 @@ router.post('/message', (req, res) => {
         });
     }
 });
+
+router.get('/character-sheet', (req, res) => {
+    console.log('Get request for character sheet');
+    if(req.query.name) {
+        CharacterSheet.findOne({}).exec((err, characterSheets) => {
+            if (err) {
+                console.log('Error retrieving character sheet');
+            } else {
+                console.log(characterSheets);
+                res.json(characterSheets);
+            }
+        });
+    } else {
+        res.json({name: "not defined", sheet:"error"});
+    }
+});
+
+router.post('/character-sheet', (req, res) => {
+    console.log('Post a character sheet');
+    let newCharacterSheet = new CharacterSheet();
+    newCharacterSheet.owner = req.body.owner;
+    newCharacterSheet.sheet = req.body.sheet;
+    newCharacterSheet.save((err, insertedCharacterSheet) => {
+        if (err) {
+            console.log('Error character sheet');
+        } else {
+            res.json(insertedCharacterSheet);
+        }
+    });
+
+});
+
 
 module.exports = router;
