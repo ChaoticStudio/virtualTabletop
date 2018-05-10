@@ -1,0 +1,5 @@
+:host ::ng-deep .field-container {
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: .5rem .5rem 0;
+}
