@@ -11,8 +11,8 @@ export class CharacterSheetService {
 
   constructor(private _http: Http) { }
 
-  getCharacterSheet(name) {
-    return this._http.get(this._getUrl+'?name='+name).map((response: Response) => response.json());
+  getCharacterSheet(owner) {
+    return this._http.get(this._getUrl+'?owner='+owner).map((response: Response) => response.json());
   }
 
   addCharacterSheet(_owner: String, _characterSheet: Object) {

@@ -183,33 +183,32 @@ router.post('/message', (req, res) => {
 
 router.get('/character-sheet', (req, res) => {
     console.log('Get request for character sheet');
-    if(req.query.name) {
-        CharacterSheet.findOne({}).exec((err, characterSheets) => {
+    if(req.query.owner) {
+        CharacterSheet.findOne({'owner': req.query.owner}).exec((err, characterSheets) => {
             if (err) {
                 console.log('Error retrieving character sheet');
             } else {
-                console.log(characterSheets);
                 res.json(characterSheets);
             }
         });
     } else {
-        res.json({name: "not defined", sheet:"error"});
+        res.json({'owner': "not defined", 'sheet':"error"});
     }
 });
 
 router.post('/character-sheet', (req, res) => {
     console.log('Post a character sheet');
-    let newCharacterSheet = new CharacterSheet();
-    newCharacterSheet.owner = req.body.owner;
-    newCharacterSheet.sheet = req.body.sheet;
-    newCharacterSheet.save((err, insertedCharacterSheet) => {
-        if (err) {
-            console.log('Error character sheet');
-        } else {
+    if(req.body.owner) {
+        CharacterSheet.findOneAndUpdate({'owner': req.body.owner}, req.body, {upsert:true, new: true}, function(err, insertedCharacterSheet){
+            if (err) {
+                res.json({'owner': "internal error", sheet:"error"});
+                console.log('Error: ' + err);
+            }
             res.json(insertedCharacterSheet);
-        }
-    });
-
+        });
+    } else {
+        res.json({'owner': "owner not defined", 'sheet':"error"});
+    }
 });
 
 
