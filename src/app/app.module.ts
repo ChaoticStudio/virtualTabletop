@@ -30,7 +30,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ToolsComponent,
     InitiativeComponent,
     ChatComponent,
-    CharacterSheetComponent
+    CharacterSheetComponent,
     RegisterComponent,
     LoginComponent,
     EventsComponent,
