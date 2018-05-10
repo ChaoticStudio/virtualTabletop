@@ -6,6 +6,7 @@ const express = require('express'),
     CharacterSheet = require('../modules/character-sheet'),
     User = require('../modules/user');
     //db = 'mongodb://user:psw@host:port/database'; 
+    
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
