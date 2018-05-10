@@ -58,7 +58,7 @@ export class InitiativeComponent implements OnInit {
     item.appendChild(itemName);
     item.appendChild(itemValue);
     itemBtn.innerHTML = '&#8635;';
-    itemBtn.addEventListener('click', () => this.roll20());
+    itemBtn.addEventListener('click', () => this.updateInitiative(id));
     item.appendChild(itemBtn);
     span.innerHTML = '&times;';
     closeBtn.appendChild(span);
@@ -71,9 +71,15 @@ export class InitiativeComponent implements OnInit {
 
   deleteFromTurnOrder(theOne2bRemoved) {
     const node = document.getElementById(theOne2bRemoved);
-    console.log('xablau');
     if (node !== null) {
       node.parentNode.removeChild(node);
+    }
+  }
+
+  updateInitiative(theOne2bUpdated) {
+    const node = <HTMLDivElement>document.getElementById(theOne2bUpdated).firstElementChild.children[1];
+    if (node !== null) {
+      node.textContent = this.roll20().toString();
     }
   }
 
