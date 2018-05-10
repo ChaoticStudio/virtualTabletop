@@ -4,7 +4,7 @@
 .container{
     margin: 0;
     font-family: 'Electrolize', sans-serif;
-    background: darkorange;
+    background: #ff7e00;
     font-size: 1.1em;
     line-height: 1.5;
     text-align: center;
@@ -35,22 +35,28 @@ h2, h3 {
     font-family: 'Electrolize', sans-serif;
 }
 
-#header{
-    min-height: 450px;
+header{
+    height: 400px;
+    color: #ffffff;
 }
 
 .bg-image{
     position: absolute;
-    /*background: url('http://via.placeholder.com/450');
+    background: url('https://pbs.twimg.com/profile_banners/45987422/1459710431/1500x500');
     background-position: left;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
     width: 100%;
-    height: 450px;
+    height: 400px;
 }
 
-#header h1 {
+header h1 {
     padding-top: 100px;
     padding-bottom: 0;
+    color: #000;
+}
+
+header p {
+    text-shadow: 1px 1px #000;
 }
 
 .content-wrap{
@@ -58,7 +64,7 @@ h2, h3 {
     z-index: 1;
 }
 
-#header .content-wrap,
+header .content-wrap,
 #section-a .content-wrap {
     padding: 0 1.5em;
 }
@@ -79,7 +85,7 @@ h2, h3 {
 
 #section-a,
 #section-c {
-    background: #333;
+    background: #0d1014;
     color: #fff;
     padding-bottom: 2em;
 }
@@ -106,7 +112,7 @@ textarea {
     resize: none;
 }
 
-#footer {
+footer {
     padding: 2em;
     background: #000;
     color: #fff;
@@ -117,16 +123,18 @@ textarea {
     .grid{
         display: grid;
         grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
-        grid-template-rows: 1fr 1fr;
     }
 
-    
     .content-wrap, 
     #section-a ul,
     #section-b ul {
         grid-column: 2/4;
     }
 
+    #section-a ul {
+        display: flex;
+        flex-direction: column;
+    }
     #section-a ul:nth-child(odd){
         grid-column: 1;
     }
