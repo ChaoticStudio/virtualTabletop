@@ -41,34 +41,28 @@
 
 :host ::ng-deep .initItem{
     display: grid;
-    grid-template-columns: 4fr 1fr 1fr 1fr;
+    grid-template-columns: 160px 25px 50px 50px;
 }
 
-:host ::ng-deep #initItemName{
-    margin: 5px;
-}
-
-:host ::ng-deep #initItemName{
+:host ::ng-deep .initItemName, :host ::ng-deep .initItemNameInput {
     grid-column: 1;
     line-height: 40px;
     margin: 0;
 }
 
-:host ::ng-deep #initItemValue{
+:host ::ng-deep .initItemValue{
     grid-column: 2;
     line-height: 40px;
-    margin: 0;
+    margin: 0 0 0 5px;
 }
 
-:host ::ng-deep #initItemBtn{
+:host ::ng-deep .initItemBtn{
     grid-column: 3;
     font-size: 15px;
-    margin: 0;
+    margin: 0 0 0 5px;
 }
-
-:host ::ng-deep .close-button{
+:host ::ng-deep .closeBtn{
     grid-column: 4;
-    line-height: 25px;
-    text-align: right;
-    margin: 0;
+    font-size: 15px;
+    margin: 0 0 0 5px;
 }

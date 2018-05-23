@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
+  tool = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setTool(toolID) {
+    this.tool = toolID;
   }
 
 }

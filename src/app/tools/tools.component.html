@@ -1,11 +1,15 @@
 <div class="tools-menu">
-  <ul>
-    <li>Initiative Tracker</li>
+  <ul *ngIf="tool == 0">
+    <li (click)="setTool(1)">Initiative Tracker</li>
     <li>Area of Action viewer</li>
     <li>Encounter Builder</li>
-    <li>Sheet Builder</li>
+    <li (click)="setTool(2)">Sheet Builder</li>
     <li>Skill Builder</li>
-    <li>Handouts</li>
+    <li>Handouts</li>    
   </ul>
-  <app-initiative></app-initiative>
+  <div *ngIf="tool != 0">
+    <button (click)="setTool(0)" type="button" class="alert button">Close</button>
+    <div *ngIf="tool == 1"><app-initiative></app-initiative></div>
+    <div *ngIf="tool == 2"><app-character-sheet></app-character-sheet></div>
+  </div>
 </div>
