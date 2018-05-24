@@ -6,7 +6,6 @@ const express = require('express'),
     CharacterSheet = require('../modules/character-sheet'),
     CharacterSheetTemplate = require('../modules/character-sheet-template'),
     User = require('../modules/user'),
-    db = 'mongodb://michael.mucelin:123456789@ds249398.mlab.com:49398/virtualtabletop';
     //db = 'mongodb://user:psw@host:port/database';
 
 
