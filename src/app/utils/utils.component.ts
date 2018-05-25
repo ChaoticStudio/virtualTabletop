@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class UtilsComponent implements OnInit {
 
-  option =2;
+  option = 2;
   lastOption = 1;
   gridTemplate = '';
   constructor () { }
