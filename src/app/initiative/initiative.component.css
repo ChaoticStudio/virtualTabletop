@@ -50,7 +50,7 @@
     margin: 0;
 }
 
-:host ::ng-deep .initItemValue{
+:host ::ng-deep .initItemValue, :host ::ng-deep .initItemInitiativeInput {
     grid-column: 2;
     line-height: 40px;
     margin: 0 0 0 5px;

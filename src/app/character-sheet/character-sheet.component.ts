@@ -18,7 +18,7 @@ export class CharacterSheetComponent implements OnInit {
   postMessage(owner: String, characterSheet: Object) {
     this._characterSheetService.addCharacterSheet(owner, characterSheet).subscribe(resNewCharacterSheet => {
       console.log(resNewCharacterSheet);
-      this.characterSheetObject = resNewCharacterSheet.sheet;
+      this.characterSheetObject = resNewCharacterSheet['sheet'];
       this.characterSheetKeys = Object.keys(this.characterSheetObject);
     });
   }
