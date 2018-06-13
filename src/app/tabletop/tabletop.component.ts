@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AreaOfEffectService } from '../area-of-effect.service';
 
 @Component({
   selector: 'app-tabletop',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabletopComponent implements OnInit {
 
-  zoom = 25; // square size in pixels
+  zoom = 55; // square size in pixels
 
-  constructor() { }
+  constructor(private _areaOfEffect: AreaOfEffectService) { }
 
   ngOnInit() {
     this.generateGrid();
@@ -28,6 +29,7 @@ export class TabletopComponent implements OnInit {
         horizontalSquares,
         verticalSquares;
 
+    this._areaOfEffect.setCanvas(ctx);
     window.addEventListener('resize', this.resize);
     canvasContainer.style.maxHeight = window.innerHeight - 55 + 'px';
     horizontalSquares = 26;
@@ -48,52 +50,9 @@ export class TabletopComponent implements OnInit {
     }
 
     ctx.stroke();
-    this.drawCircle(14, 14, 13, ctx);
-    this.drawCircle(14, 14, 9, ctx, 'rgba(55, 255, 55, .75)');
-    this.drawCircle(14, 14, 5, ctx, 'rgba(255, 55, 55, .75)');
-    // this.drawPixel(12 * this.zoom, 12 * this.zoom, ctx);
+    // this._areaOfEffect.drawCircle(10, 10, 40, this.zoom, ctx);
+    // this._areaOfEffect.drawCircle(10, 10, 20, this.zoom, ctx, 'rgba(255, 55, 55, .75)');
+    // this._areaOfEffect.drawCircle(10, 10, 5, this.zoom, ctx, 'rgba(0, 55, 55, .75)');
   }
 
-  drawCircle (positionX, positionY, radius, context, color = 'rgba(255, 255, 102, .75)') {
-    let x0 = positionX - 1;
-    let y0 = positionY - 1;
-    let unit = this.zoom;
-    radius *= unit;
-    x0 *= unit;
-    y0 *= unit;
-
-    let x = radius - unit;
-    let y = 0;
-    let dx = unit;
-    let dy = unit;
-    let err = dx - radius;
-
-    while (x >= y) {
-      this.drawPixel(x0 + x - unit, y0 + y - unit, context, color);
-      this.drawPixel(x0 + y - unit, y0 + x - unit, context, color);
-      this.drawPixel(x0 - y, y0 + x - unit, context, color);
-      this.drawPixel(x0 - x, y0 + y - unit, context, color);
-      this.drawPixel(x0 - x, y0 - y, context, color);
-      this.drawPixel(x0 - y, y0 - x, context, color);
-      this.drawPixel(x0 + y - unit, y0 - x, context, color);
-      this.drawPixel(x0 + x - unit, y0 - y, context, color);
-
-      if (err <= 0) {
-        y += unit;
-        err += dy;
-        dy += (unit * 2);
-      }
-
-      if (err > 0) {
-        x -= unit;
-        dx += (unit * 2);
-        err += dx - radius * 2;
-      }
-    }
-  }
-
-  drawPixel(positionX, positionY, context, color = 'rgba(255, 255, 102, .75)') {
-    context.fillStyle = color;
-    context.fillRect(positionX, positionY, this.zoom, this.zoom);
-  }
 }

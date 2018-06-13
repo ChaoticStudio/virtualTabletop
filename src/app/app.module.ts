@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { AreaOfEffectComponent } from './area-of-effect/area-of-effect.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    AreaOfEffectComponent
   ],
   imports: [
     BrowserModule,
