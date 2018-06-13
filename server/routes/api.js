@@ -8,7 +8,6 @@ const express = require('express'),
     User = require('../modules/user'),
     //db = 'mongodb://user:psw@host:port/database';
 
-
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
     if(err){

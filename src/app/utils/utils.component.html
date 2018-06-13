@@ -1,15 +1,15 @@
 <div id="utils">
   <div class="menu">
-    <button (click)="collapse()" id="minimize" class="button"><i class="fas fa-bars"></i></button>
-    <button (click)="setTab(1)"  id="chat"     class="button"><i class="fas fa-comment-alt"></i></button>
-    <button (click)="setTab(2)"  id="sheet"    class="button"><i class="fas fa-clipboard-list"></i></button>
-    <button (click)="setTab(3)"  id="tools"    class="button"><i class="fas fa-toolbox"></i></button>
-    <button (click)="setTab(4)"  id="configs"  class="button"><i class="fas fa-cogs"></i></button>
+    <button (click)="collapse()" id="minimize" class="button" title="menu"><i class="fas fa-bars"></i></button>
+    <button (click)="setTab(1)"  id="chat"     class="button" title="chat"><i class="fas fa-comment-alt"></i></button>
+    <button (click)="setTab(2)"  id="sheet"    class="button" title="sheet"><i class="fas fa-clipboard-list"></i></button>
+    <button (click)="setTab(3)"  id="tools"    class="button" title="tools"><i class="fas fa-toolbox"></i></button>
+    <button (click)="setTab(4)"  id="configs"  class="button" title="configs"><i class="fas fa-cogs"></i></button>
   </div>
-  <div class="tabs" *ngIf="option != 0">
-    <div class="chat"    *ngIf="option == 1"> <app-chat></app-chat> </div>
-    <div class="sheet"   *ngIf="option == 2"> <app-character-sheet></app-character-sheet> </div>
-    <div class="tools"   *ngIf="option == 3"> <app-tools></app-tools> </div>
-    <div class="configs" *ngIf="option == 4"> Aba das configurações </div>
+  <div class="tabs" *ngIf="option != 0" [ngSwitch]="option">
+    <div class="chat"    *ngSwitchCase="1"> <app-chat></app-chat> </div>
+    <div class="sheet"   *ngSwitchCase="2"> <app-character-sheet></app-character-sheet> </div>
+    <div class="tools"   *ngSwitchCase="3"> <app-tools></app-tools> </div>
+    <div class="configs" *ngSwitchCase="4"> Aba das configurações </div>
   </div>
 </div>

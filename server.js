@@ -25,7 +25,7 @@ app.get('*', (req, res) => {
 });
 
 server.listen(port, hostName, () => {
-    console.log('Server runnig on: '+ hostName + ':' + port);
+    console.log('Server running on: '+ hostName + ':' + port);
 });
 
 require('./server/routes/socket').socket(io);
