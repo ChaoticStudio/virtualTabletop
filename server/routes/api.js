@@ -4,8 +4,9 @@ const express = require('express'),
     mongoose = require('mongoose'),
     Message = require('../modules/message'),
     CharacterSheet = require('../modules/character-sheet'),
-    User = require('../modules/user');
-    //db = 'mongodb://user:psw@host:port/database'; 
+    CharacterSheetTemplate = require('../modules/character-sheet-template'),
+    User = require('../modules/user'),
+    //db = 'mongodb://user:psw@host:port/database';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
@@ -43,7 +44,7 @@ router.post('/register', (req, res) => {
             console.log(error);
         } else {
             let payload = { subject: registeredUser._id };
-            let token = jwt.sign(payload, 'secretKey');            
+            let token = jwt.sign(payload, 'secretKey');
             res.status(200).send({token});
         }
     });
@@ -182,7 +183,6 @@ router.post('/message', (req, res) => {
 });
 
 router.get('/character-sheet', (req, res) => {
-    console.log('Get request for character sheet');
     if(req.query.owner) {
         CharacterSheet.findOne({'owner': req.query.owner}).exec((err, characterSheets) => {
             if (err) {
@@ -197,7 +197,6 @@ router.get('/character-sheet', (req, res) => {
 });
 
 router.post('/character-sheet', (req, res) => {
-    console.log('Post a character sheet');
     if(req.body.owner) {
         CharacterSheet.findOneAndUpdate({'owner': req.body.owner}, req.body, {upsert:true, new: true}, function(err, insertedCharacterSheet){
             if (err) {
@@ -211,5 +210,40 @@ router.post('/character-sheet', (req, res) => {
     }
 });
 
+router.get('/character-sheet-template', (req, res) => {
+    if(req.query.all) {
+        CharacterSheetTemplate.find({}).exec((err, characterSheetTemplate) => {
+            if (err) {
+                console.log('Error retrieving character sheet templates');
+            } else {
+                res.json(characterSheetTemplate);
+            }
+        });
+    } else if(req.query.id) {
+        CharacterSheetTemplate.findOne({'id': req.query.id}).exec((err, characterSheetTemplate) => {
+            if (err) {
+                console.log('Error retrieving character sheet template');
+            } else {
+                res.json(characterSheetTemplate);
+            }
+        });
+    } else {
+        res.json({'error':"'id' not defined"});
+    }
+});
+
+router.post('/character-sheet-template', (req, res) => {
+    if(req.body.id) {
+        CharacterSheetTemplate.findOneAndUpdate({'id': req.body.id}, req.body, {upsert:true, new: true}, function(err, insertedCharacterSheetTemplate){
+            if (err) {
+                res.json({'error': "internal error"});
+                console.log('Error: ' + err);
+            }
+            res.json(insertedCharacterSheetTemplate);
+        });
+    } else {
+        res.json({'error': "id not defined"});
+    }
+});
 
 module.exports = router;
