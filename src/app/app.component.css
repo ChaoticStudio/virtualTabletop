@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
 .top-bar {
     height: 100px;
 }
@@ -15,12 +20,19 @@
     height: 80px;
 }
 
+.top-bar .menu li {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .menu-text a {
     padding: 0 10px;
 }
 
 nav div ul li a {
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.75);
     transition: color 0.1s linear;
     font-weight: 60;
 }

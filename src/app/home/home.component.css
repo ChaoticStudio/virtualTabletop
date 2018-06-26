@@ -10,6 +10,20 @@
     text-align: center;
 }
 
+input, textarea {
+    background-color: rgb(51, 51, 51);
+    border: 0;
+    color: #ffffff;
+}
+
+input:focus{
+    background-color: rgb(51, 51, 51);
+}
+
+button:focus {
+    box-shadow: 0 0 5px #48c5ff;
+}
+
 img {
     display: block;
     width: 100%;
@@ -38,6 +52,31 @@ h2, h3 {
 header{
     height: 400px;
     color: #ffffff;
+}
+
+.sideSquares {
+    position: absolute;
+    left: -4.965622612681436vw;
+    width: 7.792207792207792vw;
+    height: 85px;
+    color: #0d1014;
+    background-color: currentColor;
+    border-radius: 2px;
+    box-shadow: 6.875477463712758vw    0, 14.362108479755540vw    0, 20.626432391138273vw    0,
+                83.26967150496563vw    0, 88.006111535523300vw    0, 95.492742551566080vw    0, 102.97937356760886vw    0,
+                
+                4.889228418640183vw 85px, 12.375859434682964vw 85px, 18.334606569900690vw 85px,
+                80.51948051948052vw 85px, 88.006111535523300vw 85px, 95.492742551566080vw 85px, 102.97937356760886vw 85px,
+
+                4.889228418640183vw 170px, 12.375859434682964vw 170px, 19.862490450725744vw 170px, 21.008403361344538vw 170px,
+                88.00611153552330vw 170px, 95.492742551566080vw 170px, 102.97937356760886vw 170px,
+
+                4.889228418640183vw 255px, 12.375859434682964vw 255px, 15.278838808250573vw 255px,
+                84.03361344537815vw 255px, 88.0061115355233vw 255px, 95.49274255156608vw 255px, 102.97937356760886vw 255px,
+
+                4.889228418640183vw 340px, 12.375859434682964vw 340px, 18.181818181818183vw 340px,
+                86.32543926661573vw 340px,88.0061115355233vw 340px, 95.49274255156608vw 340px, 102.97937356760886vw 340px;
+    z-index: 1;
 }
 
 .bg-image{
@@ -99,6 +138,10 @@ header .content-wrap,
     padding: 2em 1em 1em;
 }
 
+#section-c {
+    padding: 2em 1em;
+}
+
 .card-content {    
     padding: 1.5em;
 }
@@ -129,6 +172,22 @@ footer {
     #section-a ul,
     #section-b ul {
         grid-column: 2/4;
+    }
+
+    header h1 {
+        padding-top: 15px;
+        word-spacing: -20px
+    }
+
+    header p {
+        padding: 2rem 0;
+    }
+
+    header .content-wrap {
+        grid-column: 1;
+        padding: 0 19px;
+        width: 335px;
+        text-align: left;
     }
 
     #section-a ul {
