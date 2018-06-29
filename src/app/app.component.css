@@ -41,6 +41,16 @@ nav div ul li:hover a {
     color: rgba(255,255,255,1);
 }
 
+:host ::ng-deep nav div ul li .active-link {
+    border-width: 1px 0;
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+:host ::ng-deep nav div ul li .logo.active-link {
+    border: 0;
+}
+
 #container {
     margin: 0;
     padding: 0;
