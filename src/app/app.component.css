@@ -1,6 +1,9 @@
-* {
-    box-sizing: border-box;
-    overflow-x: hidden;
+.button {
+    background-color: #ff7e00;
+}
+
+.button:hover {
+    background-color: #d16900;
 }
 
 .top-bar {
