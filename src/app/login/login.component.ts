@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {};
+  loginUserData = {'email': String, 'password': String};
 
   constructor(private _auth: AuthService,
               private _router: Router) { }
@@ -20,9 +20,8 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('token', res.token);
-        this._router.navigate(['/tools']);
+        this._router.navigate(['/tabletop']);
       },
       err => console.log(err)
     );

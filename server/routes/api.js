@@ -1,12 +1,14 @@
 const express = require('express'),
     jwt = require('jsonwebtoken'),
+    bcrypt = require('bcryptjs'),
     router = express.Router(),
     mongoose = require('mongoose'),
     Message = require('../modules/message'),
     CharacterSheet = require('../modules/character-sheet'),
     CharacterSheetTemplate = require('../modules/character-sheet-template'),
     User = require('../modules/user'),
-    db = 'mongodb://user:usertest1@ds249398.mlab.com:49398/virtualtabletop';
+    db = 'mongodb://user:usertest1@ds249398.mlab.com:49398/virtualtabletop',
+    secretKey = 'wz!hWGbnD$%CJFzd#5M46'; // ignore
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, (err) => {
@@ -27,7 +29,7 @@ function verifyToken(req, res, next){
         return res.status(401).send('Unauthorized request');
     }
 
-    const payload = jwt.verify(token, 'secretKey');
+    const payload = jwt.verify(token, secretKey);
     if(!payload) {
         return res.status(401).send('Unauthorized request');
     }
@@ -37,16 +39,26 @@ function verifyToken(req, res, next){
 }
 
 router.post('/register', (req, res) => {
-    let userData = req.body;
-    let user = new User(userData);
-    user.save((error, registeredUser) => {
-        if(error) {
-            console.log(error);
-        } else {
-            let payload = { subject: registeredUser._id };
-            let token = jwt.sign(payload, 'secretKey');
-            res.status(200).send({token});
-        }
+    let newUser = new User(req.body);
+    const saltRounds = 11;
+    bcrypt.genSalt(saltRounds, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) {
+                console.log(err);
+            }
+            if (hash) {
+                newUser.password = hash;
+                newUser.save((error, registeredUser) => {
+                    if(error) {
+                        console.log(error);
+                    } else {
+                        let payload = { subject: registeredUser._id };
+                        let token = jwt.sign(payload, secretKey, { expiresIn: '7d' });
+                        res.status(200).send({token});
+                    }
+                });
+            }
+        });
     });
 });
 
@@ -57,102 +69,37 @@ router.post('/login', (req, res) => {
             console.log(error);
         } else {
             if (!user) {
-                res.status(401).send('Invalid email');
-            } else if (user.password !== userData.password) {
-                res.status(401).send('Invalid password');
+                res.status(401).send('Invalid email or password');
             } else {
-                let payload = { subject: user._id };
-                let token = jwt.sign(payload, 'secretKey');
-                res.status(200).send({token});
+                bcrypt.compare(userData.password, user.password, (err, resp) => {
+                    if (err) {
+                        console.log(err);
+                    } else  if (!resp) {
+                        res.status(401).send('Invalid email or password');
+                    } else {
+                        let payload = { subject: user._id };
+                        let token = jwt.sign(payload, secretKey, { expiresIn: '7d' });
+                        res.status(200).send({token});
+                    }
+                });
             }
         }
     });
 });
 
-router.get('/events', (req, res) => {
-    let events = [
-        {
-            "_id": "1",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "2",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "3",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "4",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "5",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "6",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-      }
-    ];
-
-    res.json(events);
-});
-
-router.get('/special', verifyToken, (req, res) => {
-    let events = [
-        {
-            "_id": "1",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "2",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "3",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "4",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "5",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-          },
-          {
-            "_id": "6",
-            "name": "Auto Expo",
-            "description": "lorem ipsum",
-            "date": "2012-04-23T18:25:43.511Z"
-      }
-    ];
-
-    res.json(events);
+router.get('/userdata', verifyToken, (req, res) => {
+    User.findById(req.query.id).exec((error, user) => {
+        if (error) {
+            console.log(error);
+        } else {
+            if (!user) {
+                res.status(401).send('User not found');
+            } else {
+                const username = {'name': user.username};
+                res.status(200).json(username);
+            }
+        }
+    });
 });
 
 router.get('/messages', (req, res) => {

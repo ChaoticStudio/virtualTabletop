@@ -1,7 +1,17 @@
 #initiative-container{
-    width: 310px;
+    width: 315px;
     margin: 5px;
     border: 1px solid black;
+}
+
+input {
+    background-color: rgb(51, 51, 51);
+    border: 0;
+    color: #ffffff;
+}
+
+input:focus{
+    background-color: rgb(51, 51, 51);
 }
 
 .input{
@@ -26,6 +36,27 @@
 #initBtn{
     grid-column: 3;
     margin: 0;
+}
+
+.turnCtrls {
+    background-color: rgb(37, 37, 37);
+    padding: 0 86px;
+    height: 50px;
+}
+
+.initCtrl {
+    padding: 5px;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.initTurn {
+    width: 40px;
+    height: 40px;
+    display: inline;
+    margin-bottom: 0;
+    position: relative;
+    bottom: 9px;
 }
 
 :host ::ng-deep .callout{

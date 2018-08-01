@@ -1,3 +1,11 @@
+.button {
+    background-color: #ff7e00;
+}
+
+.button:hover {
+    background-color: #d16900;
+}
+
 .top-bar {
     height: 100px;
 }
@@ -15,18 +23,35 @@
     height: 80px;
 }
 
+.top-bar .menu li {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .menu-text a {
     padding: 0 10px;
 }
 
 nav div ul li a {
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.75);
     transition: color 0.1s linear;
     font-weight: 60;
 }
 
 nav div ul li:hover a {
     color: rgba(255,255,255,1);
+}
+
+:host ::ng-deep nav div ul li .active-link {
+    border-width: 1px 0;
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+:host ::ng-deep nav div ul li .logo.active-link {
+    border: 0;
 }
 
 #container {

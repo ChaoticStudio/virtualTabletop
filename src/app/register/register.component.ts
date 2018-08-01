@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = {};
+  registerUserData = {'email': String, 'password': String, 'username': String};
 
   constructor(private _auth: AuthService,
               private _router: Router) { }
@@ -20,9 +20,8 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this._auth.registerUser(this.registerUserData).subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('token', res.token);
-        this._router.navigate(['/special']);
+        this._router.navigate(['/tabletop']);
       },
       err => console.log(err)
     );
