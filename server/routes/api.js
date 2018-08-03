@@ -8,16 +8,13 @@ const express = require('express'),
     CharacterSheetTemplate = require('../modules/character-sheet-template'),
     User = require('../modules/user'),
     db = 'mongodb://user:usertest1@ds249398.mlab.com:49398/virtualtabletop',
-    secretKey = 'wz!hWGbnD$%CJFzd#5M46'; // ignore
+    secretKey = 'wz!hWGbnD$%CJFzd#5M46'; // ignore implement by file
 
 mongoose.Promise = global.Promise;
-mongoose.connect(db, (err) => {
-    if(err){
-        console.error('Error! ' + err);
-    } else {
-        console.log('Connected with no errors...');
-    }
-});
+mongoose.connect(db, {useNewUrlParser: true}).then(
+    () => console.log('Connected with no errors...'),
+    err => console.error('Error! ' + err)
+);
 
 function verifyToken(req, res, next){
     if(!req.headers.authorization) {
@@ -86,17 +83,21 @@ router.post('/login', (req, res) => {
         }
     });
 });
-
-router.get('/userdata', verifyToken, (req, res) => {
-    User.findById(req.query.id).exec((error, user) => {
+// trocar get por algo "seguro"
+router.get('/userdata', verifyToken, (req, res) => {    
+    User.findById(jwt.decode(req.query.jwt).subject).exec((error, user) => {
         if (error) {
             console.log(error);
         } else {
             if (!user) {
-                res.status(401).send('User not found');
+                res.status(401).send('Unauthorized request');
             } else {
-                const username = {'name': user.username};
-                res.status(200).json(username);
+                const userData = {
+                    'id': user._id,
+                    'name': user.username,
+                    'email': user.email
+                };
+                res.status(200).json(userData);
             }
         }
     });
@@ -185,8 +186,9 @@ router.post('/character-sheet-template', (req, res) => {
             if (err) {
                 res.json({'error': "internal error"});
                 console.log('Error: ' + err);
+            } else {
+                res.json(insertedCharacterSheetTemplate);
             }
-            res.json(insertedCharacterSheetTemplate);
         });
     } else {
         res.json({'error': "id not defined"});

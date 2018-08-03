@@ -16,10 +16,9 @@ import { ChatComponent } from './chat/chat.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './events/events.component';
-import { SpecialEventsComponent } from './special-events/special-events.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AreaOfEffectComponent } from './area-of-effect/area-of-effect.component';
+import { SheetBuilderComponent } from './sheet-builder/sheet-builder.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +33,8 @@ import { AreaOfEffectComponent } from './area-of-effect/area-of-effect.component
     CharacterSheetComponent,
     RegisterComponent,
     LoginComponent,
-    EventsComponent,
-    SpecialEventsComponent,
-    AreaOfEffectComponent
+    AreaOfEffectComponent,
+    SheetBuilderComponent
   ],
   imports: [
     BrowserModule,
