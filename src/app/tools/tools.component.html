@@ -3,7 +3,7 @@
     <button *ngIf="tool != 0" (click)="setTool(0)" type="button" class="alert button">Close</button>
     <div *ngSwitchCase="1"><app-initiative></app-initiative></div>
     <div *ngSwitchCase ="2"><app-aoe></app-aoe></div>
-    <div *ngSwitchCase="3"><app-character-sheet></app-character-sheet></div>
+    <div *ngSwitchCase="3"><app-sheet-builder></app-sheet-builder></div>
     <ul  *ngSwitchDefault>
       <li (click)="setTool(1)">Initiative Tracker</li>
       <li (click)="setTool(2)">Area of Effect viewer</li>

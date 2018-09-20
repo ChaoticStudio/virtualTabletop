@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+::ng-deep .demo-full-width {
+    width: 100%;
+}
+
+::ng-deep .margin-top {
+    margin-top: 15px;
+}
+
+::ng-deep .margin-left {
+    margin-left: 10px;
+}
+
+::ng-deep .radio-label-padding {
+    padding-right: 10px;
+    color: grey;
+}
+
+::ng-deep .mat-radio-button {
+    margin-right: 10px;
+}
+
+.form {
+    margin: 0 auto;
+    border: 2px solid lightgray;
+    width: 600px;
+    padding-left: 5px;
+    margin-top: 10px;
+}
