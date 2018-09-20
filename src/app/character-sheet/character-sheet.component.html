@@ -1,5 +1,9 @@
-<h2>Character Sheet</h2>
-<div class="character-sheet-display"></div>
-<div class="character_sheet_selector">
-<input class="small-2 large-2 cell button" type="submit" value="Buscar" (click)="loadSheets()">
+<div class="character-sheet">
+    <h2>Character Sheet</h2>
+    <div class="character-sheet-display form">
+        <dynamic-form *ngIf="this.sheetConfig[0].value != undefined" [fields]="sheetConfig" (submit)="submit($event)"></dynamic-form>
+    </div>
+    <div class="character_sheet_selector">
+        <input class="small-2 large-2 cell button" type="button" value="Buscar" (click)="loadSheets()">
+    </div>
 </div>

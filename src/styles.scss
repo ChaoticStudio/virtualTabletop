@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
  // Dependencies
+ @import "~@angular/material/prebuilt-themes/indigo-pink.css";
  @import '../node_modules/foundation-sites/_vendor/normalize-scss/sass/normalize';
  @import '../node_modules/foundation-sites/_vendor/sassy-lists/stylesheets/helpers/missing-dependencies';
  @import '../node_modules/foundation-sites/_vendor/sassy-lists/stylesheets/helpers/true';
@@ -69,34 +70,22 @@
      @include foundation-flex-grid;
    }
    @include foundation-typography;
-   @include foundation-forms;
    @include foundation-button;
-   @include foundation-accordion;
-   @include foundation-accordion-menu;
-   @include foundation-badge;
-   @include foundation-breadcrumbs;
-   @include foundation-button-group;
    @include foundation-callout;
    @include foundation-card;
    @include foundation-close-button;
    @include foundation-menu;
    @include foundation-menu-icon;
-   @include foundation-drilldown-menu;
-   @include foundation-dropdown;
-   @include foundation-dropdown-menu;
    @include foundation-responsive-embed;
    @include foundation-label;
    @include foundation-media-object;
    @include foundation-off-canvas;
-   @include foundation-orbit;
    @include foundation-pagination;
-   @include foundation-progress-bar;
    @include foundation-slider;
    @include foundation-sticky;
    @include foundation-reveal;
    @include foundation-switch;
    @include foundation-table;
-   @include foundation-tabs;
    @include foundation-thumbnail;
    @include foundation-title-bar;
    @include foundation-tooltip;

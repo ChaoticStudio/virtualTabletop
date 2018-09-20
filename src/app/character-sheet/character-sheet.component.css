@@ -1,5 +1,11 @@
-:host ::ng-deep .field-container {
-    border: 2px solid black;
-    margin-bottom: 20px;
-    padding: .5rem .5rem 0;
+::ng-deep mat-grid-tile-header {
+    background: lightgreen;
+}
+
+::ng-deep mat-grid-tile {
+    background: lightblue;
+}
+
+.character-sheet {
+    background-color: white;
 }
