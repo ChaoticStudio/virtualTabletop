@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FieldConfig } from "./../field.interface";
-import { DynamicSheetComponent } from "./../components/dynamic-sheet/dynamic-sheet.component";
 import { CharacterSheetService } from './../character-sheet.service';
 import { DynamicFormComponent } from '../components/dynamic-form/dynamic-form.component';
 
@@ -13,102 +12,121 @@ export class CharacterSheetComponent implements OnInit {
 
   constructor(private _characterSheetService: CharacterSheetService) { }
 
-  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
-  sheetConfig: FieldConfig[] = [
-    {
-      type: 'list',
-      value: [ 
-        {
-          name: 'Character',
-          content: [
-            {
-              type: 'listitem',
-              value: {
-                name: 'Name',
-                value: 'Azael'
-              }
-            }, {
-              type: 'listitem',
-              value: {
-                name: 'Class',
-                value: 'Bruxão loco'
-              }
-            }
-          ]
+  sheet = {
+    "Character": {
+      "name": "Arlow",
+      "Classe": "Fighter",
+      "Level": 30,
+      "Race": "Human",
+      "Alignment": "Neutral Good",
+      "Experience Points": 2000000,
+      "Inspiration": true
+    },
+    "Attributes": {
+      "Proficiency Bonus": 6,
+      "Passive Perception": 10,
+      "Strength": {
+          "Score": 20,
+          "Modifier": 5,
+          "Trained": true,
+          "Skills": {
+              "Athletics": true
+          }
+      },
+      "Dexterity": {
+        "Score": 20,
+        "Modifier": 5,
+        "Trained": true,
+        "Skills": {
+            "Acrobatics": false,
+            "Sleight of Hand": false,
+            "Stealth": false
         }
-      ]
-    }, {
-      type: 'list',
-      value: [ 
-        {
-          name: "Attributes",
-          content: [
-            {
-              type: 'listitem',
-              value: {
-                name: 'Proficiency Bonus',
-                value: 6
-              },
-            }, {
-              type: 'listitem',
-              value: {
-                name:'Passive Perception',
-                value: 10
-              }
-            }, {
-              type: 'list',
-              value: [
-                {
-                  name: 'Strength',
-                  content: [
-                    {
-                      type: 'listitem',
-                      value: {
-                        name: 'Value',
-                        value: 20
-                      }
-                    }, {
-                      type: 'listitem',
-                      value: {
-                        name: 'Modifier',
-                        value: 5
-                      }
-                    }, {
-                      type: 'listitem',
-                      value: [{
-                        type: 'checkbox',
-                        name: 'treinado',
-                        label: 'Treinado',
-                        value: false
-                      }]
-                    }, {
-                      type: 'list',
-                      value: [
-                        {
-                          name: 'Skills',
-                          content: [
-                            {
-                              type: 'listitem',
-                              value: [{
-                                type: 'checkbox',
-                                name: 'athletics',
-                                label: 'Athletics',
-                                value: true
-                              }]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+      },
+      "Constitution": {
+        "Score": 20,
+        "Modifier": 5,
+        "Trained": true
+      },
+        "Intelligence": {
+            "Score": 18,
+            "Modifier": 4,
+            "Trained": false,
+            "Skills": {
+                "Arcana": false,
+                "History": true,
+                "Investigation": false,
+                "Nature": false,
+                "Religion": false
             }
-          ]
+        },
+        "Wisdom": {
+            "Score": 18,
+            "Modifier": 4,
+            "Trained": false,
+            "Skills": {
+                "Animal Handling": false,
+                "Insight": true,
+                "Medicine": false,
+                "Perception": true,
+                "Survival": false
+            }
+        },
+        "Charisma": {
+            "Score": 18,
+            "Modifier": 4,
+            "Trained": false,
+            "Skills": {
+                "Deception": false,
+                "Intimidation": false,
+                "Performance": false,
+                "Persuasion": true
+            }
         }
-      ]
+    },
+    "Battle Info": {
+        "Armor Class": 22,
+        "Initiative": "",
+        "Speed": 30,
+        "Hit Point Maximum": 250,
+        "Current Hit Points": 250,
+        "Temporary Hit Points": 0,
+        "Hit Dice": "1d10",
+        "Death Saves": {
+            "Successes": 0,
+            "Failures": 0
+        }
+    },
+    "Attacks and Spells": {},
+    "Features and Traits": {},
+    "Equipment": {
+        "Coins": {
+            "CP": 0,
+            "SP": 0,
+            "EP": 0,
+            "GP": 0,
+            "PP": 0
+        },
+        "Itens": {}
+    },
+    "Other Proficiency and Languages": {
+        "Weapon": [],
+        "Armor": [],
+        "Language": [
+            "Common"
+        ]
+    },
+    "Role Play Notes": {
+        "Personality Traits": "",
+        "Ideals": "",
+        "Bonds": "",
+        "Flaws": "",
+        "Backstory": ""
     }
-  ];
+};
+
+  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  sheetConfig: FieldConfig[] = undefined;
 
   ngOnInit() {
   }
@@ -116,11 +134,46 @@ export class CharacterSheetComponent implements OnInit {
   submit(value: any) {
   }
 
+  sheetParser(sheet){
+    let toReturn = [];
+    for(let element of Object.keys(sheet)){
+      if(typeof(sheet[element]) === 'object'){
+        toReturn.push({
+          type: 'list',
+          value: [{
+            name: element,
+            content: this.sheetParser(sheet[element])
+          }]
+        });
+      } else {
+        let elementValue;
+        if(typeof(sheet[element]) === 'boolean'){
+          elementValue = [{
+            type: 'checkbox',
+            name: element,
+            label: element,
+            value: sheet[element]
+          }];
+        } else {
+          elementValue = {
+            name: element,
+            value: sheet[element]
+          }
+        }
+        toReturn.push({
+          type: 'listitem',
+          value: elementValue
+        });
+      }
+    }
+    return toReturn;
+  }
+
   loadSheets() {
     const owner = 'Doug';
-    /*this._characterSheetService.getCharacterSheet(owner).subscribe(
-      resData => this.sheetConfig[0].value = resData['sheet']*/
-      
+    this._characterSheetService.getCharacterSheet(owner).subscribe(
+      resData => this.sheetConfig= this.sheetParser(resData['sheet'])
+    );
   }
 
 }
