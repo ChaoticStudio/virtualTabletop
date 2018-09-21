@@ -7,21 +7,19 @@ import { FieldConfig } from "../../field.interface";
   <mat-list>
     <ng-container *ngFor="let groupName of field.value;">
       <h3 mat-subheader>{{groupName.name}}</h3>
-      <dynamic-form [fields]="groupName.content"></dynamic-form>
-      <mat-divider></mat-divider> 
+      <dynamic-form [fields]="groupName.content"></dynamic-form>      
     </ng-container>
   </mat-list>
+  <mat-divider></mat-divider> 
   `,
   styles: []
 })
 export class ListComponent implements OnInit {
-  objectKeys = Object.keys;
 
   field: FieldConfig;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
