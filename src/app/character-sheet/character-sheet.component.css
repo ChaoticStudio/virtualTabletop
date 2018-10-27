@@ -1,11 +1,38 @@
-::ng-deep mat-grid-tile-header {
-    background: lightgreen;
+::ng-deep * {
+    box-sizing: border-box;
 }
 
-::ng-deep mat-grid-tile {
-    background: lightblue;
+::ng-deep .mat-list {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0;
+}
+
+::ng-deep .mat-subheader {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-infix{
+    width: unset !important;
+    padding: .2em 0 !important;
+    font-size: 14px
+}
+
+::ng-deep .sheet-list-item {
+    display: inline-block !important;
+    width: 160px;
+    height: 40px;
 }
 
 .character-sheet {
     background-color: white;
+}
+
+::ng-deep .header .sheet-list-item {
+    
+}
+
+::ng-deep .text-block .sheet-list-item {
+    display: block !important;
+    width: 100%;
 }

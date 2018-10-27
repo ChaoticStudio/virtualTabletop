@@ -5,18 +5,18 @@ import {
   Input,
   OnInit,
   ViewContainerRef
-} from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { FieldConfig } from "../../field.interface";
-import { InputComponent } from "../input/input.component";
-import { ButtonComponent } from "../button/button.component";
-import { SelectComponent } from "../select/select.component";
-import { DateComponent } from "../date/date.component";
-import { RadiobuttonComponent } from "../radiobutton/radiobutton.component";
-import { CheckboxComponent } from "../checkbox/checkbox.component";
-import { GridListComponent } from "../grid-list/grid-list.component";
-import { ListComponent } from "../list/list.component";
-import { ListItemComponent } from "../list-item/list-item.component";
+} from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from '../../field.interface';
+import { InputComponent } from '../input/input.component';
+import { ButtonComponent } from '../button/button.component';
+import { SelectComponent } from '../select/select.component';
+import { DateComponent } from '../date/date.component';
+import { RadiobuttonComponent } from '../radiobutton/radiobutton.component';
+import { CheckboxComponent } from '../checkbox/checkbox.component';
+import { GridListComponent } from '../grid-list/grid-list.component';
+import { ListComponent } from '../list/list.component';
+import { ListItemComponent } from '../list-item/list-item.component';
 
 const componentMapper = {
   input: InputComponent,
@@ -30,7 +30,7 @@ const componentMapper = {
   listitem: ListItemComponent
 };
 @Directive({
-  selector: "[dynamicField]"
+  selector: '[dynamicField]'
 })
 export class DynamicFieldDirective implements OnInit {
   @Input() field: FieldConfig;

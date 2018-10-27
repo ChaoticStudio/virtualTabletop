@@ -1,16 +1,10 @@
 <div class="tools-menu">  
-  <div [ngSwitch]="tool">
-    <button *ngIf="tool != 0" (click)="setTool(0)" type="button" class="alert button">Close</button>
-    <div *ngSwitchCase="1"><app-initiative></app-initiative></div>
-    <div *ngSwitchCase ="2"><app-aoe></app-aoe></div>
-    <div *ngSwitchCase="3"><app-sheet-builder></app-sheet-builder></div>
-    <ul  *ngSwitchDefault>
-      <li (click)="setTool(1)">Initiative Tracker</li>
-      <li (click)="setTool(2)">Area of Effect viewer</li>
-      <li (click)="setTool(3)">Sheet Builder</li>
-      <li (click)="setTool(4)">Skill Builder</li>
-      <li (click)="setTool(5)">Encounter Builder</li>
-      <li (click)="setTool(6)">Handouts</li>
-    </ul>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Sheet Builder"> <app-sheet-builder></app-sheet-builder> </mat-tab>
+    <mat-tab label="Initiative Tracker"> <app-initiative></app-initiative> </mat-tab>
+    <mat-tab label="Area of Effect viewer"> <app-aoe></app-aoe> </mat-tab>
+    <mat-tab label="Skill Builder">Skill Builder</mat-tab>
+    <mat-tab label="Encounter Builder">Encounter Builder</mat-tab>
+    <mat-tab label="Handouts">Handouts</mat-tab>
+  </mat-tab-group>
 </div>
