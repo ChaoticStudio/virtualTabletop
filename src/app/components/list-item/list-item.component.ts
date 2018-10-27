@@ -4,12 +4,12 @@ import { FieldConfig } from '../../field.interface';
 @Component({
   selector: 'app-list-item',
   template: `
-    <mat-list-item>
+    <mat-list-item class="sheet-list-item">
       <div *ngIf="isObject(); else template">
         <dynamic-form [fields]="field.value"></dynamic-form>
       </div>
       <ng-template #template>
-        <p> {{field.value.name}}: {{field.value.value}} </p>
+        <h4 mat-line> {{field.value.name}}: {{field.value.value}} </h4>
       </ng-template>
     </mat-list-item>
   `,

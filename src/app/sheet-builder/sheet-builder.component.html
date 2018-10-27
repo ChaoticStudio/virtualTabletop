@@ -1,28 +1,19 @@
-<div class="character_sheet_editor">
-  <h2>Sheet Builder</h2>
-  <form class="grid-x">
-    <label for="template-import" class="button secondary">Upload File</label>
-    <input type="file"   class="import-template show-for-sr" id="template-import" name="template-import">
-    <input type="submit" class="small-3 cell button" value="Importar" (click)="importFields()">    
-  </form>
-  <form>
-    <select id="sheet-system-type">
-      <option>Custom</option>
-      <option (click)="loadPreset('0')">D&amp;D 5e</option>
-      <option (click)="loadPreset('0')">Call of Cthulhu 7e</option>
-      <option (click)="loadPreset('0')">7th Sea 2e</option>
-      <option (click)="loadPreset('0')">Ars Magica 5e</option>
-    </select>
-    <input type="text" id="character-sheet-edit-owner" placeholder="Nome do Personagem">
-    <div class="sheet-fields"></div>
-    <div class="tools">
-      <select id="sheet-fields-type" class="cell small-9">
-        <option value="text">Texto</option>
-        <option value="number">Numero</option>
-      </select>
-      <input type='submit' class="small-3 cell button secondary no-margin" (click)="addField()" value="Add Field" />
+<div class="character-sheet-editor">
+  <div class="form">
+    <h2>Sheet Builder</h2>
+    <dynamic-form [fields]="sheetOptions" (submit)="submit($event)"></dynamic-form>
+    <br>
+    {{form.value | json}}
+  </div>
+  <div class="editor">
+    <div class="title">
+      <h3>Dictionaries</h3>
+      <button mat-icon-button color="primary" (click)="createDictionary()"><mat-icon>add_circle</mat-icon></button>
     </div>
-    <input class="small-3 cell button" type="submit" value="Enviar" (click)="saveFields()">
-    <button class="small-3 cell button" (click)="exportFields()">Exportar</button>
-  </form>
+    <dynamic-form [fields]="fieldEditor" (submit)="submit($event)"></dynamic-form>
+  </div>
+  <div class="sheet-preview">
+    <h3>Preview</h3>
+    <dynamic-form [fields]="sheetPreview" (submit)="submit($event)"></dynamic-form>
+  </div>
 </div>

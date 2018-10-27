@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FieldConfig } from './../field.interface';
 import { CharacterSheetService } from './../character-sheet.service';
 import { UserdataService } from '../userdata.service';
+import { DynamicFormComponent } from '../components/dynamic-form/dynamic-form.component';
+
 
 @Component({
   selector: 'app-sheet-builder',
@@ -11,11 +14,32 @@ export class SheetBuilderComponent implements OnInit {
 
   characterSheetObject: Object;
   characterSheetKeys: Array<String>;
+  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  sheetOptions: FieldConfig[] = [
+    {
+      type: 'select',
+      label: 'System',
+      name: 'system',
+      options: ['Custom', 'D&D 5e', 'Call of Cthulhu 7e', 'Ars Magica 5e', '7th Sea 2e'],
+      value: 'Custom'
+    },
+    {
+      type: 'button',
+      label: 'input'
+    }
+  ];
+
+  fieldEditor: FieldConfig[] = [];
+  sheetPreview: FieldConfig[] = [];
 
   constructor(private _characterSheetService: CharacterSheetService,
               private _userDataService: UserdataService) { }
 
   ngOnInit() {
+  }
+
+  submit(event) {
+    // console.log(event);
   }
 
   postMessage(owner: String, characterSheet: Object) {

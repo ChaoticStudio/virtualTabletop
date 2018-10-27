@@ -1,3 +1,45 @@
-.no-margin {
-    margin: 0;
+::ng-deep .demo-full-width {
+    width: 100%;
+}
+
+::ng-deep .form .demo-full-width button {
+    width: 100%;
+}
+
+::ng-deep .margin-top {
+    margin-top: 15px;
+}
+
+::ng-deep .margin-left {
+    margin-left: 10px;
+}
+
+::ng-deep .radio-label-padding {
+    padding-right: 10px;
+    color: grey;
+}
+
+.character-sheet-editor {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form, .editor, .sheet-preview {
+    margin: 5px;
+    border: 2px solid lightgray;
+    padding: 5px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.title {
+    display: inline-flex;
+}
+
+.title button {
+    top: 10px;
+}
+
+.sheet-preview {
+    width: 675px;
 }
