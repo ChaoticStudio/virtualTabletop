@@ -15,5 +15,4 @@ export interface FieldConfig {
     validations?: Validator[];
     innerContent?: any;
     color?: string;
-    event?: string;
 }
