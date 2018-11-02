@@ -1,13 +1,9 @@
-::ng-deep .demo-full-width {
-    width: 100%;
-}
-
-::ng-deep .form .demo-full-width button {
+::ng-deep .full-width {
     width: 100%;
 }
 
 ::ng-deep .margin-top {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 ::ng-deep .margin-left {
@@ -17,6 +13,16 @@
 ::ng-deep .radio-label-padding {
     padding-right: 10px;
     color: grey;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .character-sheet-editor {
@@ -29,7 +35,15 @@
     border: 2px solid lightgray;
     padding: 5px;
     min-width: 300px;
-    text-align: center;
+}
+
+.radio-btn {
+    margin-right: 15px;
+}
+
+.add-button {
+    margin-top:15px;
+    left: 85%;
 }
 
 .title {
