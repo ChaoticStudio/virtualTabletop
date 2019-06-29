@@ -182,7 +182,7 @@ export class CharacterSheetComponent implements OnInit {
   loadSheets() {
     const owner = 'Doug';
     this._characterSheetService.getCharacterSheet(owner).subscribe(
-      resData => this.sheetConfig = this.sheetParser(this.sheet) // this.sheetParser(resData['sheet'])
+      resData => this.sheetConfig = this.sheetParser(this.sheet)    // this.sheetParser(resData['sheet'])
     );
   }
 

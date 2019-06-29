@@ -3,7 +3,7 @@
     <mat-tab label="Sheet Builder">
       <form class="tools margin-top" [formGroup]="form">
         <mat-form-field class="full-width">
-          <mat-select formControlName="system" placeholder="System template">
+          <mat-select formControlName="system" placeholder="System template" (selectionChange)="changeTemplate($event.value)">
             <mat-option *ngFor="let system of systems" [value]="system">{{system}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -71,7 +71,10 @@
               </mat-panel-title>
               <mat-panel-description>
                 Race, Class, Occupations, etc...
-                <mat-icon>list</mat-icon>
+                <svg height="24" width="24">
+                  <line x1="2" y1="12" x2="16" y2="12" style="stroke:rgba(0, 0, 0, 0.54);stroke-width:2" />
+                  <polygon points="18,10 24,10 21,16" style="fill:rgba(0, 0, 0, 0.54);" />
+                </svg>
               </mat-panel-description>
             </mat-expansion-panel-header>
             <mat-form-field class="full-width">
@@ -85,6 +88,10 @@
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
+            <div class="full-width margin-top">
+              <mat-slide-toggle class="full-width" formControlName="isMultipleSelection">Multiple Selection</mat-slide-toggle>
+              <mat-hint align="end">Useful for multiclass option</mat-hint>
+            </div>
             <button class="add-button" mat-fab (click)="addProperty('Select')">
               <mat-icon>add</mat-icon>
             </button>

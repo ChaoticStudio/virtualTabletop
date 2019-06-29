@@ -44,7 +44,7 @@
 .add-button {
     margin-top:15px;
     left: 85%;
-}
+} form
 
 .title {
     display: inline-flex;
@@ -56,4 +56,14 @@
 
 .sheet-preview {
     width: 675px;
+}
+
+::ng-deep .sheet-preview>dynamic-form>form>app-list>.mat-list{
+    border: 1px solid darkorange;
+    margin-bottom: 2px;
+}
+
+::ng-deep .sheet-list-form>form {
+    display: flex;
+    flex-wrap: wrap;
 }

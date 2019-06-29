@@ -18,13 +18,13 @@ import { FieldConfig } from '../../field.interface';
 export class ListItemComponent implements OnInit {
 
   field: FieldConfig;
-  
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  isObject(): boolean{
+  isObject(): boolean {
     return this.field.value.length !== undefined;
   }
 }

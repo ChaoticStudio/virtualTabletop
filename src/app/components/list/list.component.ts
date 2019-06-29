@@ -7,7 +7,7 @@ import { FieldConfig } from '../../field.interface';
   <mat-list class="mat-list {{field.value[0].css}}">
     <ng-container *ngFor="let groupName of field.value;">
       <h3 mat-subheader>{{groupName.name}}</h3>
-      <dynamic-form [fields]="groupName.content"></dynamic-form>
+      <dynamic-form class="sheet-list-form" [fields]="groupName.content"></dynamic-form>
     </ng-container>
   </mat-list>
   <mat-divider></mat-divider>
