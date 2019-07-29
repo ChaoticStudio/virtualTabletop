@@ -4,7 +4,7 @@ import { AreaOfEffectService } from '../area-of-effect.service';
 @Component({
   selector: 'app-aoe',
   templateUrl: './area-of-effect.component.html',
-  styleUrls: ['./area-of-effect.component.css']
+  styleUrls: ['./area-of-effect.component.scss']
 })
 export class AreaOfEffectComponent implements OnInit {
 
