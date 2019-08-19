@@ -17,6 +17,7 @@ import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { GridListComponent } from '../grid-list/grid-list.component';
 import { ListComponent } from '../list/list.component';
 import { ListItemComponent } from '../list-item/list-item.component';
+import { SkillComponent } from '../skill/skill.component';
 
 const componentMapper = {
   input: InputComponent,
@@ -27,14 +28,15 @@ const componentMapper = {
   checkbox: CheckboxComponent,
   gridlist: GridListComponent,
   list: ListComponent,
-  listitem: ListItemComponent
+  listitem: ListItemComponent,
+  skill: SkillComponent
 };
 @Directive({
   selector: '[dynamicField]'
 })
 export class DynamicFieldDirective implements OnInit {
   @Input() field: FieldConfig;
-  @Input() group: FormGroup;
+  @Input() group?: FormGroup;
   componentRef: any;
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -46,6 +48,7 @@ export class DynamicFieldDirective implements OnInit {
     );
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
-    this.componentRef.instance.group = this.group;
+    if(this.group)
+      this.componentRef.instance.group = this.group;
   }
 }
