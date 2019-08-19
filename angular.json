@@ -72,8 +72,7 @@
               "node_modules/jquery/dist/jquery.min.js"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/foundation-sites/dist/css/foundation.min.css"
+              "src/styles.scss"
             ],
             "assets": [
               "src/assets",
@@ -125,7 +124,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

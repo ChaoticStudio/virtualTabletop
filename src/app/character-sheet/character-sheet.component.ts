@@ -6,7 +6,7 @@ import { DynamicFormComponent } from '../components/dynamic-form/dynamic-form.co
 @Component({
   selector: 'app-character-sheet',
   templateUrl: './character-sheet.component.html',
-  styleUrls: ['./character-sheet.component.css']
+  styleUrls: ['./character-sheet.component.scss']
 })
 export class CharacterSheetComponent implements OnInit {
 
@@ -182,7 +182,7 @@ export class CharacterSheetComponent implements OnInit {
   loadSheets() {
     const owner = 'Doug';
     this._characterSheetService.getCharacterSheet(owner).subscribe(
-      resData => this.sheetConfig = this.sheetParser(this.sheet) // this.sheetParser(resData['sheet'])
+      resData => this.sheetConfig = this.sheetParser(this.sheet)    // this.sheetParser(resData['sheet'])
     );
   }
 
