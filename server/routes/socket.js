@@ -1,16 +1,11 @@
 const Message = require('../modules/message'),
       CharacterSheet = require('../modules/character-sheet'),
       mongoose = require('mongoose'),
-      db = 'mongodb://michael.mucelin:123456789@ds249398.mlab.com:49398/virtualtabletop'; //ignore
+      db = 'mongodb://dougbyte:AZ4Q4Ra4@ds249398.mlab.com:49398/virtualtabletop';
 
-mongoose.Promise = global.Promise;
-mongoose.connect(db, (err) => {
-    if(err){
-        console.error('Erro! ' + err);
-    } else {
-        console.log('Connected with no errors...');
-    }
-});
+mongoose.connect(db, {useNewUrlParser: true});
+let dbc = mongoose.connection;
+dbc.on('error', console.error.bind(console, 'MongoDB SOCKET connection error:'));
 
 module.exports = {
     // Witchcraft to use socketIO from here

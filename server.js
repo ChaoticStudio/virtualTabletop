@@ -7,7 +7,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     api = require('./server/routes/api'),
-    port = 3000,
+    port = 3500,
     hostName = 'localhost';
 
 // Where the angular code is placed, gives express access to dist folder
