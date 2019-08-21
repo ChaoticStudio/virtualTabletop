@@ -7,14 +7,12 @@ const express = require('express'),
     CharacterSheet = require('../modules/character-sheet'),
     CharacterSheetTemplate = require('../modules/character-sheet-template'),
     User = require('../modules/user'),
-    db = 'mongodb://user:usertest1@ds249398.mlab.com:49398/virtualtabletop',
+    db = 'mongodb://dougbyte:AZ4Q4Ra4@ds249398.mlab.com:49398/virtualtabletop',
     secretKey = 'wz!hWGbnD$%CJFzd#5M46'; // ignore implement by file
 
-mongoose.Promise = global.Promise;
-mongoose.connect(db, {useNewUrlParser: true}).then(
-    () => console.log('Connected with no errors...'),
-    err => console.error('Error! ' + err)
-);
+mongoose.connect(db, {useNewUrlParser: true});
+let dbc = mongoose.connection;
+dbc.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 function verifyToken(req, res, next){
     if(!req.headers.authorization) {

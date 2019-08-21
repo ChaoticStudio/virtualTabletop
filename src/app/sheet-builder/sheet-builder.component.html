@@ -140,6 +140,7 @@
           </mat-expansion-panel>
 
         </mat-accordion>
+        <button class="add-button" mat-fab (click)="saveTemplate()"><mat-icon>get_app</mat-icon></button>
       </form>
     </mat-tab>
     <mat-tab label="Dictionaries">
@@ -151,6 +152,6 @@
   </mat-tab-group>
   <div class="sheet-preview">
     <h3>Preview</h3>
-    <dynamic-form [fields]="sheetPreview" (submit)="submit($event)"></dynamic-form>
+    <dynamic-form [fields]="sheetPreview"></dynamic-form>
   </div>
 </div>

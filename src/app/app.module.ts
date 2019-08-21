@@ -34,6 +34,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { ListComponent } from './components/list/list.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
+import { SkillComponent } from './components/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ListItemComponent } from './components/list-item/list-item.component';
     DynamicFormComponent,
     GridListComponent,
     ListComponent,
-    ListItemComponent
+    ListItemComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,8 @@ import { ListItemComponent } from './components/list-item/list-item.component';
     CheckboxComponent,
     GridListComponent,
     ListComponent,
-    ListItemComponent
+    ListItemComponent,
+    SkillComponent
   ]
 })
 export class AppModule { }
