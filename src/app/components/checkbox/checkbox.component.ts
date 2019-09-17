@@ -4,7 +4,7 @@ import { FieldConfig } from "../../field.interface";
 @Component({
   selector: "app-checkbox",
   template: `
-<div class="sheet-checkbox-container" [formGroup]="group" >
+<div class="sheet-checkbox-container gt" [formGroup]="group" >
   <p>{{field.name}}</p>
   <mat-checkbox #sheetCheckbox *ngFor="let box of boxes;" value="0" [formControlName]="field.name" (change)="handleCheckboxGroup($event.source)" class="sheet-checkbox"></mat-checkbox>
 </div>

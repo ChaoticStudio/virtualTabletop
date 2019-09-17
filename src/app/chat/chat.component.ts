@@ -24,7 +24,7 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
     this._chatService.getMessages().subscribe((resChatData) => this.messagesFromDB = resChatData);
     const host = 'localhost',
-      port     = 3000,
+      port     = 3500,
       socket   = socketIo('http://' + host + ':' + port),
       status   = <HTMLDivElement>document.getElementById('status'),
       messages = <HTMLDivElement>document.getElementById('messages'),

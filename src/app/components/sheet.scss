@@ -1,3 +1,16 @@
+// list
+.sheet-container {
+    border-radius: 5px;
+    margin: 5px auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  }
+
+::ng-deep .sheet-list-form form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// list item
 :host { 
     width: 100%;
 }
@@ -9,20 +22,36 @@
     width: 75%
 }
 :host.lg { // Large
-    width:50%;
+    @media screen and (min-width: 992px) {
+        width:50%;
+    }
 }
 :host.md { // Medium
-    width:33%;
+    width: 50%;
+    @media screen and (min-width: 992px) {
+        width:33%;
+    }
 }
 :host.sm { // Small
-    width:25%;
+    width: 50%;
+    @media screen and (min-width: 992px) {
+        width:25%;
+    }
+    
 }
 :host.tn { // Tiny
-    width:10%;
+    width:25%;
     ::ng-deep .sheet-input {
         text-align: center;
-        .sheet-input-text {
-            text-align: end;
+    }
+
+    @media screen and (min-width: 992px) {
+        width:10%;
+        ::ng-deep .sheet-input {
+            text-align: center;
+            .sheet-input-text {
+                text-align: end;
+            }
         }
     }
 }
@@ -63,10 +92,9 @@
 }
 // checkbox
 .sheet-checkbox-container{
-    width: min-content;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:flex-end;
     
     .sheet-checkbox {
         margin: 0 5px;
