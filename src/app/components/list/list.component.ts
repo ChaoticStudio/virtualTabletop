@@ -11,21 +11,7 @@ import { FieldConfig } from '../../field.interface';
     </ng-container>
   </mat-list>
   `,
-  styles: [
-    `
-    .sheet-container {
-      border-radius: 5px;
-      margin: 5px auto;
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    }
-
-    ::ng-deep .sheet-list-form form {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    `
-  ]
+  styleUrls: [`../sheet.scss`]
 })
 export class ListComponent implements OnInit {
 
