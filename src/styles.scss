@@ -1,14 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
  // Dependencies
- @import "custom-material-theme.scss";
+ @import '~reset-css/sass/reset';
+ @import 'custom-material-theme.scss';
  @import url('https://fonts.googleapis.com/css?family=Roboto');
 
- * {
-     box-sizing: border-box;
- }
-
- body {
-     margin: 0;
-     font-size: 100%;
-     font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
- }
+body {
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+}
