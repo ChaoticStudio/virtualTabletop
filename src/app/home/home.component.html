@@ -1,89 +1,48 @@
-<div class="container">
-  <header class="grid">
-    <div class="side-squares-background show-for-medium"></div>
-    <div class="title-squares show-for-medium"></div>
-    <div class="side-squares-orange show-for-medium"></div>
-    <div class="side-squares-dark show-for-medium"></div>
-    <div class="side-squares-orange flip show-for-medium"></div>
-    <div class="side-squares-dark flip show-for-medium"></div>
-    <div class="container-squares show-for-medium"></div>
-    <div class="bg-image">
-      <div class="sketchfab-embed-wrapper show-for-large">
-        <iframe width="100%" height="400" src="https://sketchfab.com/models/acb5384b93134b779d9854fcbe62c837/embed?autostart=1&amp;preload=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe> 
-      </div>
-    </div>
-    <div class="content-wrap">
-      <h1>O Caos</h1>
-      <div class="card show-for-small-only">
-          <div class="card-content"><p><strong>Bem vindo a Chaotic!</strong><br> Nós somos um estúdio brasileiro <br> de jogos independentes e nosso foco é proporcionar a melhor experiencia de jogabilidade possível e com gráficos estilizados.</p></div>
-      </div>
-      <p class="show-for-medium"><strong>Bem vindo a Chaotic!</strong><br> Nós somos um estúdio brasileiro <br> de jogos independentes e nosso foco é proporcionar a melhor experiencia de jogabilidade possível e com gráficos estilizados.</p>
-    </div>
+<main class="main">
+  <header class="header">
+    <h1 class="header__title">Bem-vindo à Chaotic!</h1>
+    <p>Sua plataforma de RPG definitiva!</p>
+    <a mat-raised-button color="accent" routerLink="/register">Cadastre-se</a>
+    <app-threejs class="scene"></app-threejs>
   </header>
-  <main id="main">
-    <section id="section-a" class="grid">
-      <div class="content-wrap">
-        <h1 class="content-title">Projetos</h1>
-        <ul class="grid">
-          <li>
-            <div class="card">
-              <div class="card-content">
-                <h2 class="card-title">Kaizer Knights</h2>
-                <p>É um jogo RPG Hack n Slash com o intuito de fornecer uma experiencia de feiticeiro ao jogador, no sentido em que o mesmo pode customizar suas habilidades magicas ou mesmo ser um grande guerreiro formando seus próprios combos</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card">
-              <div class="card-content">
-                <h2 class="card-title">RPG Tools</h2>
-                <p>Um conjunto de ferramentas para jogadores e mestres de RPG de Mesa, seja para jogarem totalmente online ou apenas genrenciar seus personagens ou ordem de combate.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card">
-              <div class="card-content">
-                <img src="../../assets/logo.png" alt="Warriors of the Legendary Wizards" title="Warriors of the Legendary Wizards">
-                <p>Um rpg clássico em rpg maker, batalhas por turnos e muita história a ser descoberta.</p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section id="section-b" class="grid">
-      <div class="content-wrap">
-        <h1 class="content-title">Equipe</h1>
-        <ul>
-          <li>
-            <div class="card">
-              <div class="card-content">
-                <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="pt_BR" data-type="horizontal" data-theme="dark" data-vanity="dougbyte"><a class="LI-simple-link" href='https://br.linkedin.com/in/dougbyte?trk=profile-badge'>Douglas Morriesen de Almeida</a></div>
-                <p>Desenvolvedor de jogos independente atuando principalmente em programação de gráfica e gameplay. Tem conhecimentos nas linguagens C#, Python/GDScript e C++.<br>Atualmente trabalhando em dois projetos pessoais Kaizer Knights e RPG Tools, além disso faz parte da equipe KrakenLab como Programador e Environment Artist em um projeto de MMORPG tático.</p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section id="section-c" class="grid">
-      <div class="content-wrap">
-        <h1 class="content-title">Contato</h1>
-        <form>
-          <input type="email" name="email" id="femail" placeholder="Digite seu email">
-          <input type="text" name="title" id="ftitle" placeholder="Sobre o que gostaria de tratar?">
-          <textarea name="textarea" id="ftextarea" placeholder="Digite sua mensagem.." rows="10"></textarea>
-          <button type="submit" name="submit-email" id="fbtn" class="button">Enviar</button>
-          <p>Email: dougbyte7@gmail.com</p>
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer class="grid">
-    <div class="content-wrap">
-      <div>Chaotic Studio &copy; - 2018</div>
-      <div>Project by Douglas Morriesen de Almeida</div>
-    </div>
-  </footer>
-</div>
+  
+  <section>
+    <h1>O Caos</h1>
+    <p>
+      Nós somos um estúdio brasileiro de jogos independentes. Nosso foco é proporcionar
+      experiencias digitais imersivas e fluidas de alta qualidade para nossos usuários.
+    </p>
+  </section>  
+  <section>
+    <h1>Projetos</h1>
+    
+    <article class="article">
+      <h1 class="article-title">Kaizer Knights</h1>
+      <p>É um jogo RPG Hack n Slash com o intuito de fornecer uma experiencia de feiticeiro ao jogador, no sentido em que o mesmo pode customizar suas habilidades magicas ou mesmo ser um grande guerreiro formando seus próprios combos</p>
+    </article>
+
+    <article class="article">
+      <h1 class="article-title">RPG Tools</h1>
+      <p>Um conjunto de ferramentas para jogadores e mestres de RPG de Mesa, seja para jogarem totalmente online ou apenas genrenciar seus personagens ou ordem de combate.</p>
+    </article>
+
+    <article class="article">
+      <img src="../../assets/logo.png" alt="Warriors of the Legendary Wizards" title="Warriors of the Legendary Wizards">
+      <p>Um rpg clássico em rpg maker, batalhas por turnos e muita história a ser descoberta.</p>
+    </article>
+  </section>
+
+  <section>
+    <h1>Equipe</h1>
+    <a href='https://linkedin.com/in/dougbyte'>Douglas Morriesen de Almeida</a>
+    <p>Desenvolvedor Web e ocasionalmente de jogos, atuando principalmente em desenvolvimento 
+      front-end. Possui sólidos conhecimentos em HTML, CSS e JS (ES2015+).
+      Atualmente trabalhando em alguns projetos pessoais mas principalmente no RPG Tools.</p>
+  </section>
+</main>
+
+<footer>
+  <Address> Contato <a href="mailto:dougbyte7@gmail.com">dougbyte7@gmail.com</a></Address>
+  <p>Chaotic Studio © - 2018</p>
+  <p>by <a href="https://www.linkedin.com/in/dougbyte/">Douglas Morriesen de Almeida</a></p>
+</footer>
