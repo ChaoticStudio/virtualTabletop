@@ -1,23 +1,24 @@
-<nav class="top-bar">
-  <div class="top-bar-left">
-    <ul class="menu">
-      <li class="menu-text">
-        <a class="logo" routerLink="/home" routerLinkActive="active-link">
-          <img src="../favicon.svg" alt="Chaotic-Logo">
-        </a>
-      </li>
-      <li><a routerLink="/tabletop" routerLinkActive="active-link">Tabletop</a></li>
-      <li><a routerLink="/tools" routerLinkActive="active-link">RPG Tools</a></li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-        <li *ngIf="!_authService.loggedIn()"><a routerLink="/login" routerLinkActive="active-link">Login</a></li>
-        <li *ngIf="!_authService.loggedIn()"><a routerLink="/register" routerLinkActive="active-link">Register</a></li>
-        <li *ngIf="_authService.loggedIn()"><a (click)="_authService.logoutUser()">Logout</a></li>
-    </ul>
-  </div>
-</nav>
-<div id="container" class="grid-container fluid">
-  <router-outlet></router-outlet>
-</div>
+<header>
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">
+          <a class="logo" routerLink="/home" routerLinkActive="active-link">
+            <img src="../assets/favicon.svg" alt="Chaotic-Logo"/>
+          </a>
+        </li>
+        <li><a routerLink="/tabletop" routerLinkActive="active-link">Tabletop</a></li>
+        <li><a routerLink="/tools" routerLinkActive="active-link">RPG Tools</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+          <li *ngIf="!_authService.loggedIn()"><a routerLink="/login" routerLinkActive="active-link">Login</a></li>
+          <li *ngIf="!_authService.loggedIn()"><a routerLink="/register" routerLinkActive="active-link">Register</a></li>
+          <li *ngIf="_authService.loggedIn()"><a (click)="_authService.logoutUser()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>

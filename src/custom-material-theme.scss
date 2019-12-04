@@ -1,6 +1,75 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
+/* For use in src/lib/core/theming/_palette.scss */
+$md-orange: (
+    50 : #fff0e0,
+    100 : #ffd8b3,
+    200 : #ffbf80,
+    300 : #ffa54d,
+    400 : #ff9126,
+    500 : #ff7e00,
+    600 : #ff7600,
+    700 : #ff6b00,
+    800 : #ff6100,
+    900 : #ff4e00,
+    A100 : #ffffff,
+    A200 : #fff5f2,
+    A400 : #ffcfbf,
+    A700 : #ffbba6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-dark: (
+    50 : #e2e2e3,
+    100 : #b6b7b9,
+    200 : #86888a,
+    300 : #56585b,
+    400 : #313437,
+    500 : #0d1014,
+    600 : #0b0e12,
+    700 : #090c0e,
+    800 : #07090b,
+    900 : #030506,
+    A100 : #f9cb9c,
+    A200 : #f6b26b,
+    A400 : #e69138,
+    A700 : #783f04,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
@@ -13,18 +82,19 @@ $candy-app-accent:  mat-palette($mat-deep-orange, A200, A100, A400);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Include the default theme styles.
-//.unicorn-light-theme {
+.light-side-theme {
     @include angular-material-theme($candy-app-theme);
-//}
+}
 
-/*/ Define an alternate dark theme.
-$dark-primary: mat-palette($mat-orange);
-$dark-accent:  mat-palette($mat-deep-orange);
+// Define an alternate dark theme.
+$dark-primary: mat-palette($md-orange);
+$dark-accent:  mat-palette($md-dark);
 $dark-warn:    mat-palette($mat-amber, A200, A100, A400);
 $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-
-@include angular-material-theme($dark-theme);*/
+.dark-side-theme {
+    @include angular-material-theme($dark-theme);
+}

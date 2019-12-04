@@ -53,7 +53,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "virtual-tabletop:build"
+            "browserTarget": "virtual-tabletop:build",
+            "proxyConfig": "./proxy.config.json",
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

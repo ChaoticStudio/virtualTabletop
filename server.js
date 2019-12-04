@@ -8,7 +8,7 @@ const express = require('express'),
     path = require('path'),
     api = require('./server/routes/api'),
     port = 3500,
-    hostName = 'localhost';
+    hostName = '192.168.0.10';
 
 // Where the angular code is placed, gives express access to dist folder
 app.use(express.static(path.join(__dirname, 'dist')));

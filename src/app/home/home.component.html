@@ -1,35 +1,39 @@
 <main class="main">
   <header class="header">
-    <h1 class="header__title">Bem-vindo à Chaotic!</h1>
-    <p>Sua plataforma de RPG definitiva!</p>
-    <a mat-raised-button color="accent" routerLink="/register">Cadastre-se</a>
-    <app-threejs class="scene"></app-threejs>
+    <div class="header__container">
+      <h1 class="header__title">Bem-vindo à <br/> Chaotic!</h1>
+      <p class="header__text">Sua plataforma de RPG definitiva!</p>
+      <a class="btn-sign-up" mat-raised-button color="accent" routerLink="/register">Cadastre-se</a>
+      <app-threejs class="scene"></app-threejs>
+    </div>
   </header>
   
-  <section>
-    <h1>O Caos</h1>
+  <section class="about">
+    <h1 class="about__title">O Caos</h1>
     <p>
       Nós somos um estúdio brasileiro de jogos independentes. Nosso foco é proporcionar
       experiencias digitais imersivas e fluidas de alta qualidade para nossos usuários.
     </p>
   </section>  
-  <section>
-    <h1>Projetos</h1>
-    
-    <article class="article">
-      <h1 class="article-title">Kaizer Knights</h1>
-      <p>É um jogo RPG Hack n Slash com o intuito de fornecer uma experiencia de feiticeiro ao jogador, no sentido em que o mesmo pode customizar suas habilidades magicas ou mesmo ser um grande guerreiro formando seus próprios combos</p>
-    </article>
+  <section class="projects">
+    <div class="projects__container">
+      <h1 class="projects__title">Projetos</h1>
+      
+      <article class="article">
+        <h1 class="article-title">Kaizer Knights</h1>
+        <p>É um jogo RPG Hack n Slash com o intuito de fornecer uma experiencia de feiticeiro ao jogador, no sentido em que o mesmo pode customizar suas habilidades magicas ou mesmo ser um grande guerreiro formando seus próprios combos</p>
+      </article>
 
-    <article class="article">
-      <h1 class="article-title">RPG Tools</h1>
-      <p>Um conjunto de ferramentas para jogadores e mestres de RPG de Mesa, seja para jogarem totalmente online ou apenas genrenciar seus personagens ou ordem de combate.</p>
-    </article>
+      <article class="article">
+        <h1 class="article-title">RPG Tools</h1>
+        <p>Um conjunto de ferramentas para jogadores e mestres de RPG de Mesa, seja para jogarem totalmente online ou apenas genrenciar seus personagens ou ordem de combate.</p>
+      </article>
 
-    <article class="article">
-      <img src="../../assets/logo.png" alt="Warriors of the Legendary Wizards" title="Warriors of the Legendary Wizards">
-      <p>Um rpg clássico em rpg maker, batalhas por turnos e muita história a ser descoberta.</p>
-    </article>
+      <article class="article">
+        <img src="../../assets/logo.png" alt="Warriors of the Legendary Wizards" title="Warriors of the Legendary Wizards">
+        <p>Um rpg clássico em rpg maker, batalhas por turnos e muita história a ser descoberta.</p>
+      </article>
+    </div>
   </section>
 
   <section>
