@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "virtual-tabletop": {
-      "root": "",
+      "root": "virtualTabletop",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
@@ -22,6 +22,12 @@
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "scripts": [
+              "src/assets/libs/draco/draco_decoder.js",
+              "src/assets/libs/draco/draco_decoder.wasm",
+              "src/assets/libs/draco/draco_encoder.js",
+              "src/assets/libs/draco/draco_wasm_wrapper.js"
             ]
           },
           "configurations": {
@@ -47,7 +53,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "virtual-tabletop:build"
+            "browserTarget": "virtual-tabletop:build",
+            "proxyConfig": "./proxy.config.json",
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

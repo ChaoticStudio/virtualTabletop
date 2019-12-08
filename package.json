@@ -38,6 +38,7 @@
     "reset-css": "^4.0.1",
     "rxjs": "^6.3.3",
     "socket.io": "^2.2.0",
+    "three": "^0.108.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
