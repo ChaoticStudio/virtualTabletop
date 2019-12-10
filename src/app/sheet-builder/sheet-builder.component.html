@@ -1,14 +1,19 @@
 <div class="character-sheet-editor">
   <mat-tab-group class="form">
     <mat-tab label="Sheet Builder">
-      <form class="tools margin-top" [formGroup]="form">
-        <mat-form-field class="full-width">
-          <mat-select formControlName="system" placeholder="System template" (selectionChange)="changeTemplate($event.value)">
-            <mat-option *ngFor="let system of systems" [value]="system">{{system}}</mat-option>
+      <form class="tools" [formGroup]="form">
+        <mat-form-field>
+          <mat-select
+            formControlName="system"
+            placeholder="System template"
+            (selectionChange)="changeTemplate($event.value)"
+          >
+            <mat-option *ngFor="let system of systems" [value]="system">{{
+              system
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-accordion class="headers-align">
-
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -20,21 +25,37 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <div [formGroup]="form">
-              <mat-form-field class="full-width" on>
-                <input matInput class="full-width" formControlName="label" placeholder="Title" type="text" (input)="updateComponent()">
+              <mat-form-field on>
+                <input
+                  matInput
+                  formControlName="label"
+                  placeholder="Title"
+                  type="text"
+                  (input)="updateComponent()"
+                />
               </mat-form-field>
-              <div class="full-width margin-top">
+              <div>
                 <label class="radio-label-padding">Direction:</label>
                 <mat-radio-group formControlName="direction">
-                  <mat-radio-button class="radio-btn" value="Horizontal">Horizontal</mat-radio-button>
-                <mat-radio-button class="radio-btn" value="Vertical">Vertical</mat-radio-button>
+                  <mat-radio-button class="radio-btn" value="Horizontal"
+                    >Horizontal</mat-radio-button
+                  >
+                  <mat-radio-button class="radio-btn" value="Vertical"
+                    >Vertical</mat-radio-button
+                  >
                 </mat-radio-group>
               </div>
-              <div class="full-width margin-top">
-                <mat-slide-toggle formControlName="hasBorder">Has border</mat-slide-toggle>
+              <div>
+                <mat-slide-toggle formControlName="hasBorder"
+                  >Has border</mat-slide-toggle
+                >
               </div>
             </div>
-            <button class="add-button" mat-fab (click)="addProperty('Container')">
+            <button
+              class="add-button"
+              mat-fab
+              (click)="addProperty('Container')"
+            >
               <mat-icon>add</mat-icon>
             </button>
           </mat-expansion-panel>
@@ -49,14 +70,23 @@
                 <mat-icon>short_text</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field class="full-width">
-              <input matInput class="full-width" formControlName="label" placeholder="Label" type="text">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="label"
+                placeholder="Label"
+                type="text"
+              />
             </mat-form-field>
-            <div class="full-width margin-top">
+            <div>
               <label class="radio-label-padding">Input type:</label>
               <mat-radio-group formControlName="inputType">
-                <mat-radio-button class="radio-btn" value="text">Text</mat-radio-button>
-                <mat-radio-button class="radio-btn" value="number">Number</mat-radio-button>
+                <mat-radio-button class="radio-btn" value="text"
+                  >Text</mat-radio-button
+                >
+                <mat-radio-button class="radio-btn" value="number"
+                  >Number</mat-radio-button
+                >
               </mat-radio-group>
             </div>
             <button class="add-button" mat-fab (click)="addProperty('Input')">
@@ -72,24 +102,50 @@
               <mat-panel-description>
                 Race, Class, Occupations, etc...
                 <svg height="24" width="24">
-                  <line x1="2" y1="12" x2="16" y2="12" style="stroke:rgba(0, 0, 0, 0.54);stroke-width:2" />
-                  <polygon points="18,10 24,10 21,16" style="fill:rgba(0, 0, 0, 0.54);" />
+                  <line
+                    x1="2"
+                    y1="12"
+                    x2="16"
+                    y2="12"
+                    style="stroke:rgba(0, 0, 0, 0.54);stroke-width:2"
+                  />
+                  <polygon
+                    points="18,10 24,10 21,16"
+                    style="fill:rgba(0, 0, 0, 0.54);"
+                  />
                 </svg>
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field class="full-width">
-              <input matInput class="full-width" formControlName="label" placeholder="Label" type="text">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="label"
+                placeholder="Label"
+                type="text"
+              />
             </mat-form-field>
-            <mat-form-field class="full-width">
-              <input type="text" placeholder="Dictionary" aria-label="Dictionary" matInput formControlName="dictionary" [matAutocomplete]="auto">
+            <mat-form-field>
+              <input
+                type="text"
+                placeholder="Dictionary"
+                aria-label="Dictionary"
+                matInput
+                formControlName="dictionary"
+                [matAutocomplete]="auto"
+              />
               <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                  {{option}}
+                <mat-option
+                  *ngFor="let option of filteredOptions | async"
+                  [value]="option"
+                >
+                  {{ option }}
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
-            <div class="full-width margin-top">
-              <mat-slide-toggle class="full-width" formControlName="isMultipleSelection">Multiple Selection</mat-slide-toggle>
+            <div>
+              <mat-slide-toggle formControlName="isMultipleSelection"
+                >Multiple Selection</mat-slide-toggle
+              >
               <mat-hint align="end">Useful for multiclass option</mat-hint>
             </div>
             <button class="add-button" mat-fab (click)="addProperty('Select')">
@@ -107,10 +163,19 @@
                 <mat-icon>subject</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field class="full-width">
-              <input matInput class="full-width" formControlName="label" placeholder="Label" type="text">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="label"
+                placeholder="Label"
+                type="text"
+              />
             </mat-form-field>
-            <button class="add-button" mat-fab (click)="addProperty('Textarea')">
+            <button
+              class="add-button"
+              mat-fab
+              (click)="addProperty('Textarea')"
+            >
               <mat-icon>add</mat-icon>
             </button>
           </mat-expansion-panel>
@@ -125,30 +190,43 @@
                 <mat-icon>check_box</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field class="full-width">
-              <input matInput class="full-width" formControlName="label" placeholder="Label" type="text">
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="label"
+                placeholder="Label"
+                type="text"
+              />
             </mat-form-field>
-            <div class="full-width margin-top">
-              <mat-slide-toggle formControlName="hasNumber">Has Number</mat-slide-toggle>
+            <div>
+              <mat-slide-toggle formControlName="hasNumber"
+                >Has Number</mat-slide-toggle
+              >
             </div>
-            <mat-form-field *ngIf="form.value.hasNumber" class="full-width">
-                <input matInput class="full-width" formControlName="label" placeholder="Value or Rule" type="text">
+            <mat-form-field *ngIf="form.value.hasNumber">
+              <input
+                matInput
+                formControlName="label"
+                placeholder="Value or Rule"
+                type="text"
+              />
             </mat-form-field>
-            <button class="add-button" mat-fab (click)="addProperty('Checkbox')">
+            <button
+              class="add-button"
+              mat-fab
+              (click)="addProperty('Checkbox')"
+            >
               <mat-icon>add</mat-icon>
             </button>
           </mat-expansion-panel>
-
         </mat-accordion>
-        <button class="add-button" mat-fab (click)="saveTemplate()"><mat-icon>get_app</mat-icon></button>
+        <button class="add-button" mat-fab (click)="saveTemplate()">
+          <mat-icon>get_app</mat-icon>
+        </button>
       </form>
     </mat-tab>
-    <mat-tab label="Dictionaries">
-
-    </mat-tab>
-    <mat-tab label="Design Tree">
-
-    </mat-tab>
+    <mat-tab label="Dictionaries"> </mat-tab>
+    <mat-tab label="Design Tree"> </mat-tab>
   </mat-tab-group>
   <div class="sheet-preview">
     <h3>Preview</h3>
