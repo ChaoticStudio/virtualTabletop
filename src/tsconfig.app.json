@@ -2,9 +2,6 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "paths": {
-      "socket.io-client": ["../node_modules/socket.io-client/dist/socket.io.slim.js"]
-    },
     "module": "es2015",
     "types": []
   },

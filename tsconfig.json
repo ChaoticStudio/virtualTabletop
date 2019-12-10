@@ -7,9 +7,10 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/app/*"]
+      "@/*": ["src/app/*"],
+      "socket.io-client": ["node_modules/socket.io-client/dist/socket.io.slim.js"]
     },
     "target": "es5",
     "typeRoots": [
