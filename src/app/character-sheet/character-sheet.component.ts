@@ -131,7 +131,7 @@ export class CharacterSheetComponent implements OnInit {
         }
   };
 
-  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  @ViewChild(DynamicFormComponent, { static: false }) form: DynamicFormComponent;
   sheetConfig: FieldConfig[] = undefined;
 
   ngOnInit() {

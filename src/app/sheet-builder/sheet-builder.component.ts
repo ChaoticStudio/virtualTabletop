@@ -32,7 +32,7 @@ export class SheetBuilderComponent implements OnInit {
     Race: ['Human', 'Dwarf', 'Elf']
   }
 
-  @ViewChild(DynamicFormComponent) previewForm: DynamicFormComponent
+  @ViewChild(DynamicFormComponent, { static: true }) previewForm: DynamicFormComponent
   sheetPreview: FieldConfig[] = [
     {
       type: 'list',

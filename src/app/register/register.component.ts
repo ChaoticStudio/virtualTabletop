@@ -273,7 +273,7 @@ export class RegisterComponent implements OnInit {
     return countries;
   }
 
-  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  @ViewChild(DynamicFormComponent, { static: true }) form: DynamicFormComponent;
   regConfig: FieldConfig[] = [
     {
       type: "input",
