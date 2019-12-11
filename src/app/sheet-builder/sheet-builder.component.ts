@@ -32,7 +32,8 @@ export class SheetBuilderComponent implements OnInit {
     Race: ['Human', 'Dwarf', 'Elf']
   }
 
-  @ViewChild(DynamicFormComponent, { static: true }) previewForm: DynamicFormComponent
+  @ViewChild(DynamicFormComponent, { static: true })
+  previewForm: DynamicFormComponent
   sheetPreview: FieldConfig[] = [
     {
       type: 'list',
@@ -633,7 +634,7 @@ export class SheetBuilderComponent implements OnInit {
   ngOnInit() {
     this.filteredOptions = this.formControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
+      map((value: string) => this._filter(value))
     )
   }
 

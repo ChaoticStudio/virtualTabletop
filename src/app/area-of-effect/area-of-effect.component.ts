@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AreaOfEffectService } from '../area-of-effect.service';
+import { Component, OnInit } from '@angular/core'
+import { AreaOfEffectService } from '../area-of-effect.service'
 
 @Component({
   selector: 'app-aoe',
@@ -7,21 +7,24 @@ import { AreaOfEffectService } from '../area-of-effect.service';
   styleUrls: ['./area-of-effect.component.scss']
 })
 export class AreaOfEffectComponent implements OnInit {
+  pos
+  color
+  radius
 
-  pos;
-  color;
-  radius;
+  constructor(private _areaOfEffect: AreaOfEffectService) {}
 
-  constructor(private _areaOfEffect: AreaOfEffectService) { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   drawArea() {
-    console.log(this.color);
-    this.pos = this.radius / 5 + 2;
-    this._areaOfEffect.drawCircle(this.pos, this.pos, this.radius, 55, this._areaOfEffect.context, this.color);
+    console.log(this.color)
+    this.pos = this.radius / 5 + 2
+    this._areaOfEffect.drawCircle(
+      this.pos,
+      this.pos,
+      this.radius,
+      55,
+      this._areaOfEffect.context,
+      this.color
+    )
   }
-
 }

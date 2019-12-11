@@ -1,5 +1,5 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { FieldConfig } from '../../field.interface';
+import { Component, OnInit, HostBinding } from '@angular/core'
+import { FieldConfig } from '../../field.interface'
 
 @Component({
   selector: 'app-list-item',
@@ -9,22 +9,21 @@ import { FieldConfig } from '../../field.interface';
         <dynamic-form [fields]="field.value"></dynamic-form>
       </div>
       <ng-template #template>
-        <h4 mat-line> {{field.value.name}}: {{field.value.value}} </h4>
+        <h4 mat-line>{{ field.value.name }}: {{ field.value.value }}</h4>
       </ng-template>
     </mat-list-item>
   `,
   styleUrls: ['../sheet.scss']
 })
 export class ListItemComponent implements OnInit {
-
-  field: FieldConfig;
-  @HostBinding('class') className;
-  constructor() { }
+  field: FieldConfig
+  @HostBinding('class') className
+  constructor() {}
   ngOnInit() {
-    this.className = this.field.value[0].className;
+    this.className = this.field.value[0].className
   }
 
   isObject(): boolean {
-    return this.field.value.length !== undefined;
+    return this.field.value.length !== undefined
   }
 }

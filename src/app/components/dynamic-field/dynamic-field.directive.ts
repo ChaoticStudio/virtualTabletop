@@ -5,19 +5,19 @@ import {
   Input,
   OnInit,
   ViewContainerRef
-} from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FieldConfig } from '../../field.interface';
-import { InputComponent } from '../input/input.component';
-import { ButtonComponent } from '../button/button.component';
-import { SelectComponent } from '../select/select.component';
-import { DateComponent } from '../date/date.component';
-import { RadiobuttonComponent } from '../radiobutton/radiobutton.component';
-import { CheckboxComponent } from '../checkbox/checkbox.component';
-import { GridListComponent } from '../grid-list/grid-list.component';
-import { ListComponent } from '../list/list.component';
-import { ListItemComponent } from '../list-item/list-item.component';
-import { SkillComponent } from '../skill/skill.component';
+} from '@angular/core'
+import { FormGroup } from '@angular/forms'
+import { FieldConfig } from '../../field.interface'
+import { InputComponent } from '../input/input.component'
+import { ButtonComponent } from '../button/button.component'
+import { SelectComponent } from '../select/select.component'
+import { DateComponent } from '../date/date.component'
+import { RadiobuttonComponent } from '../radiobutton/radiobutton.component'
+import { CheckboxComponent } from '../checkbox/checkbox.component'
+import { GridListComponent } from '../grid-list/grid-list.component'
+import { ListComponent } from '../list/list.component'
+import { ListItemComponent } from '../list-item/list-item.component'
+import { SkillComponent } from '../skill/skill.component'
 
 const componentMapper = {
   input: InputComponent,
@@ -30,14 +30,14 @@ const componentMapper = {
   list: ListComponent,
   listitem: ListItemComponent,
   skill: SkillComponent
-};
+}
 @Directive({
   selector: '[dynamicField]'
 })
 export class DynamicFieldDirective implements OnInit {
-  @Input() field: FieldConfig;
-  @Input() group?: FormGroup;
-  componentRef: any;
+  @Input() field: FieldConfig
+  @Input() group?: FormGroup
+  componentRef: any
   constructor(
     private resolver: ComponentFactoryResolver,
     private container: ViewContainerRef
@@ -45,10 +45,9 @@ export class DynamicFieldDirective implements OnInit {
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(
       componentMapper[this.field.type]
-    );
-    this.componentRef = this.container.createComponent(factory);
-    this.componentRef.instance.field = this.field;
-    if(this.group)
-      this.componentRef.instance.group = this.group;
+    )
+    this.componentRef = this.container.createComponent(factory)
+    this.componentRef.instance.field = this.field
+    if (this.group) this.componentRef.instance.group = this.group
   }
 }

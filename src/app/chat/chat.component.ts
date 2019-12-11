@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import * as socketIo from 'socket.io-client';
-import { ChatService } from './../chat.service';
-import { Message } from '../message';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+// import * as socketIo from 'socket.io-client';
+import { ChatService } from './../chat.service'
+import { Message } from '../message'
 
 @Component({
   selector: 'app-chat',
@@ -10,18 +10,18 @@ import { Message } from '../message';
   providers: [ChatService]
 })
 export class ChatComponent implements OnInit {
+  messagesFromDB: Array<Message>
 
-  messagesFromDB: Array<Message>;
-
-  constructor(private _chatService: ChatService) { }
+  constructor(private _chatService: ChatService) {}
 
   postMessage(message: Message) {
-    this._chatService.addMessage(message).subscribe((resNewMessage) => {
-      this.messagesFromDB.push(resNewMessage);
-    });
+    this._chatService.addMessage(message).subscribe(resNewMessage => {
+      this.messagesFromDB.push(resNewMessage)
+    })
   }
 
   ngOnInit() {
+    /*
     this._chatService.getMessages().subscribe((resChatData) => this.messagesFromDB = resChatData);
     const host = 'localhost',
       port     = 3500,
@@ -100,8 +100,6 @@ export class ChatComponent implements OnInit {
       socket.on('cleared', () => {
         messages.textContent = '';
       });
-    }
+    } */
   }
-
-
 }
