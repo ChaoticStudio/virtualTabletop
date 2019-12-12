@@ -22,12 +22,6 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "scripts": [
-              "src/assets/libs/draco/draco_decoder.js",
-              "src/assets/libs/draco/draco_decoder.wasm",
-              "src/assets/libs/draco/draco_encoder.js",
-              "src/assets/libs/draco/draco_wasm_wrapper.js"
             ]
           },
           "configurations": {

@@ -23,7 +23,6 @@ import { LoginComponent } from './login/login.component'
 import { TokenInterceptorService } from './token-interceptor.service'
 import { AreaOfEffectComponent } from './area-of-effect/area-of-effect.component'
 import { SheetBuilderComponent } from './sheet-builder/sheet-builder.component'
-import { ThreejsComponent } from './threejs/threejs.component'
 import { InputComponent } from './components/input/input.component'
 import { ButtonComponent } from './components/button/button.component'
 import { SelectComponent } from './components/select/select.component'
@@ -52,7 +51,6 @@ import { SkillComponent } from './components/skill/skill.component'
     LoginComponent,
     AreaOfEffectComponent,
     SheetBuilderComponent,
-    ThreejsComponent,
     InputComponent,
     ButtonComponent,
     SelectComponent,
