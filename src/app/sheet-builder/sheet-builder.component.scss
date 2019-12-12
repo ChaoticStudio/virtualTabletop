@@ -1,40 +1,45 @@
-.headers-align .mat-expansion-panel-header-title,
-.headers-align .mat-expansion-panel-header-description {
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
   flex-basis: 0;
+  align-items: center;
 }
 
-.headers-align .mat-expansion-panel-header-description {
+.mat-expansion-panel-header-description {
   justify-content: space-between;
   align-items: center;
 }
 
 .character-sheet-editor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.form, .editor, .sheet-preview {
-    margin: 5px;
-    border: 2px solid lightgray;
-    padding: 5px;
-    min-width: 300px;
+.form,
+.editor,
+.sheet-preview {
+  margin: 5px;
+  padding: 5px;
+  min-width: 300px;
+}
+
+.tools {
+  overflow: hidden;
 }
 
 .radio-btn {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .add-button {
-    margin-top:15px;
-    left: 85%;
+  margin-top: 15px;
+  left: 85%;
 }
 
 .title {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .title button {
-    top: 10px;
+  top: 10px;
 }
-

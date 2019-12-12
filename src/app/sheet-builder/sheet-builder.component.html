@@ -13,7 +13,7 @@
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-accordion class="headers-align">
+        <mat-accordion>
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -101,19 +101,7 @@
               </mat-panel-title>
               <mat-panel-description>
                 Race, Class, Occupations, etc...
-                <svg height="24" width="24">
-                  <line
-                    x1="2"
-                    y1="12"
-                    x2="16"
-                    y2="12"
-                    style="stroke:rgba(0, 0, 0, 0.54);stroke-width:2"
-                  />
-                  <polygon
-                    points="18,10 24,10 21,16"
-                    style="fill:rgba(0, 0, 0, 0.54);"
-                  />
-                </svg>
+                <mat-icon>expand_more</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
             <mat-form-field>
@@ -233,3 +221,4 @@
     <dynamic-form [fields]="sheetPreview"></dynamic-form>
   </div>
 </div>
+

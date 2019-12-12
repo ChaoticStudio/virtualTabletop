@@ -68,8 +68,6 @@ $md-dark: (
     )
 );
 
-
-
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
@@ -88,7 +86,7 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Define an alternate dark theme.
 $dark-primary: mat-palette($md-orange);
-$dark-accent:  mat-palette($md-dark);
+$dark-accent:  mat-palette($mat-deep-orange);
 $dark-warn:    mat-palette($mat-amber, A200, A100, A400);
 $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
@@ -97,4 +95,5 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .dark-side-theme {
     @include angular-material-theme($dark-theme);
+    background-color: #282c31;
 }
