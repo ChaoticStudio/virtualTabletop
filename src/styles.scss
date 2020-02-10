@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
- // Dependencies
- @import '~reset-css/sass/reset';
- @import 'custom-material-theme.scss';
- @import url('https://fonts.googleapis.com/css?family=Roboto');
+// Dependencies
+@import '~reset-css/sass/reset';
+@import 'custom-material-theme.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }

@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core'
   providedIn: 'root'
 })
 export class AreaOfEffectService {
-  context
-  private lastCircle = 0
+  context: CanvasRenderingContext2D
+  private lastCircleRadius = 0
   constructor() {}
 
   setCanvas(context) {
@@ -14,20 +14,21 @@ export class AreaOfEffectService {
 
   // Bresenham's circle algorithm
   drawCircle(
-    positionX,
-    positionY,
-    radius,
-    pixelSize,
+    positionX: number,
+    positionY: number,
+    radius: number = 20,
+    pixelSize: number,
     context: CanvasRenderingContext2D,
     color = 'rgba(255, 255, 102, .75)'
   ) {
-    if (this.lastCircle !== 0) {
-      const r = this.lastCircle
+    if (this.lastCircleRadius !== 0) {
+      const r = this.lastCircleRadius
       const pos = r / 5 + 2
-      this.lastCircle = 0
-      this.drawCircle(pos, pos, r, 55, context, '#ffffff')
+      this.lastCircleRadius = 0
+      const bgColor = '#1B1B1E'
+      this.drawCircle(pos, pos, r, 55, context, bgColor)
     }
-    this.lastCircle = radius
+    this.lastCircleRadius = radius
     const unit = pixelSize
     const x0 = (positionX - 1) * unit
     const y0 = (positionY - 1) * unit

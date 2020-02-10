@@ -31,7 +31,7 @@ import { FormGroup } from '@angular/forms'
 export class SkillComponent implements OnInit {
   field: FieldConfig
   group: FormGroup
-  placeholder: string = 'temp'
+  placeholder: string
   constructor() {}
   ngOnInit() {}
   onValueChange(value) {

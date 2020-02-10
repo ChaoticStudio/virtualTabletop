@@ -1,103 +1,107 @@
 // list
+@import 'palette';
+
 .sheet-container {
-    background-color: #424242;
-    border-radius: 5px;
-    margin: 5px auto;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-  }
+  background-color: $blackOlive;
+  border-radius: 5px;
+  margin: 5px auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
 
 ::ng-deep .sheet-list-form form {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 // list item
-:host { 
-    width: 100%;
+:host {
+  width: 100%;
 }
 
-:host.gt { // Gargantuan
-    width:100%;
+:host.gt {
+  // Gargantuan
+  width: 100%;
 }
-:host.hg { // Huge
-    width: 75%
+:host.hg {
+  // Huge
+  width: 75%;
 }
-:host.lg { // Large
-    @media screen and (min-width: 992px) {
-        width:50%;
-    }
-}
-:host.md { // Medium
+:host.lg {
+  // Large
+  @media screen and (min-width: 992px) {
     width: 50%;
-    @media screen and (min-width: 992px) {
-        width:33%;
-    }
+  }
 }
-:host.sm { // Small
-    width: 50%;
-    @media screen and (min-width: 992px) {
-        width:25%;
-    }
-    
+:host.md {
+  // Medium
+  width: 50%;
+  @media screen and (min-width: 992px) {
+    width: 33%;
+  }
 }
-:host.tn { // Tiny
-    width:25%;
+:host.sm {
+  // Small
+  width: 50%;
+  @media screen and (min-width: 992px) {
+    width: 25%;
+  }
+}
+:host.tn {
+  // Tiny
+  width: 25%;
+  ::ng-deep .sheet-input {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 992px) {
+    width: 10%;
     ::ng-deep .sheet-input {
-        text-align: center;
+      text-align: center;
     }
-
-    @media screen and (min-width: 992px) {
-        width:10%;
-        ::ng-deep .sheet-input {
-            text-align: center;
-            .sheet-input-text {
-                text-align: end;
-            }
-        }
-    }
+  }
 }
 
-:host.auto{
-    width: auto;
+:host.auto {
+  width: auto;
 }
 
 // List item
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 // skill
 .skill {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    
-    ::ng-deep .mat-form-field-label-wrapper {
-        width: 180%;
-    }
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-    .skill-input-field {
-        margin: 8px 1px 0 2px;
-        width: 5ch;
-    }
-    .skill-input{
-        text-align: center;
-    }
-    .skill-label {
-        width: 14ch;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: .78em;
-    }
+  ::ng-deep .mat-form-field-label-wrapper {
+    width: 180%;
+  }
+
+  .skill-input-field {
+    margin: 8px 1px 0 2px;
+    width: 3ch;
+  }
+  .skill-input {
+    text-align: center;
+  }
+  .skill-label {
+    width: 14ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.78em;
+  }
 }
 // checkbox
-.sheet-checkbox-container{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    
-    .sheet-checkbox {
-        margin: 0 5px;
-    }
+.sheet-checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .sheet-checkbox {
+    margin: 0 5px;
+  }
 }

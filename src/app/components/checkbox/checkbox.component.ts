@@ -32,15 +32,16 @@ export class CheckboxComponent implements OnInit {
     if (this.field.value <= 1) return
 
     let sourceIndex = 999
-    this._checkboxes.some((self, i, checkboxes) => {
+    this._checkboxes.forEach((self, i, checkboxes) => {
       // if self
       if (self.id === source.id) {
         sourceIndex = i
-        //next.checked == false
-        if (!checkboxes[Math.min(i + 1, checkboxes.length - 1)].checked)
-          return true // avoid unnecessary loops
+        // next.checked == false
+        if (!checkboxes[i + 1]?.checked) {
+          return true
+        } // avoid unnecessary loops
       }
-      self.checked = i <= sourceIndex ? true : false
+      self.checked = i <= sourceIndex
     })
   }
 }

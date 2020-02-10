@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, ViewChild } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { FieldConfig } from '@/field.interface'
 import { CharacterSheetService } from '@/character-sheet.service'
 import { UserdataService } from '@/userdata.service'

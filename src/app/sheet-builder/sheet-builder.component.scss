@@ -18,9 +18,10 @@
 .form,
 .editor,
 .sheet-preview {
-  margin: 5px;
-  padding: 5px;
-  min-width: 300px;
+  margin: 0.3125rem;
+  padding: 0.3125rem;
+  min-width: 18.75rem;
+  max-width: 42.5rem;
 }
 
 .tools {

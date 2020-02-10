@@ -34,7 +34,8 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { GridListComponent } from './components/grid-list/grid-list.component'
 import { ListComponent } from './components/list/list.component'
 import { ListItemComponent } from './components/list-item/list-item.component'
-import { SkillComponent } from './components/skill/skill.component'
+import { SkillComponent } from './components/skill/skill.component';
+import { InputOptionsMenuComponent } from './sheet-builder/input-options-menu/input-options-menu.component'
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SkillComponent } from './components/skill/skill.component'
     GridListComponent,
     ListComponent,
     ListItemComponent,
-    SkillComponent
+    SkillComponent,
+    InputOptionsMenuComponent
   ],
   imports: [
     BrowserModule,

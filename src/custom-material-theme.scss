@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import 'palette';
 // Plus imports for other components in your app.
 
 /* For use in src/lib/core/theming/_palette.scss */
@@ -8,63 +9,30 @@ $md-orange: (
     200 : #ffbf80,
     300 : #ffa54d,
     400 : #ff9126,
-    500 : #ff7e00,
+    500 : $brandPrimary,
     600 : #ff7600,
     700 : #ff6b00,
     800 : #ff6100,
-    900 : #ff4e00,
-    A100 : #ffffff,
+    900 : $heidelbergRed,
+    A100 : $white,
     A200 : #fff5f2,
     A400 : #ffcfbf,
     A700 : #ffbba6,
     contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$md-dark: (
-    50 : #e2e2e3,
-    100 : #b6b7b9,
-    200 : #86888a,
-    300 : #56585b,
-    400 : #313437,
-    500 : #0d1014,
-    600 : #0b0e12,
-    700 : #090c0e,
-    800 : #07090b,
-    900 : #030506,
-    A100 : #f9cb9c,
-    A200 : #f6b26b,
-    A400 : #e69138,
-    A700 : #783f04,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #ffffff,
+        50 : $eerieBlack,
+        100 : $eerieBlack,
+        200 : $eerieBlack,
+        300 : $eerieBlack,
+        400 : $eerieBlack,
+        500 : $white,
+        600 : $white,
+        700 : $white,
+        800 : $white,
+        900 : $white,
+        A100 : $eerieBlack,
+        A200 : $eerieBlack,
+        A400 : $eerieBlack,
+        A700 : $eerieBlack,
     )
 );
 
@@ -73,27 +41,26 @@ $md-dark: (
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
 
-
 // Define the default theme (same as the example above).
-$candy-app-primary: mat-palette($mat-orange);
-$candy-app-accent:  mat-palette($mat-deep-orange, A200, A100, A400);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$light-primary: mat-palette($mat-orange);
+$light-accent:  mat-palette($mat-deep-orange, A200, A100, A400);
+$light-theme:   mat-light-theme($light-primary, $light-accent);
 
-// Include the default theme styles.
+// Define the alternate light theme.
 .light-side-theme {
-    @include angular-material-theme($candy-app-theme);
+    @include angular-material-theme($light-theme);
 }
 
-// Define an alternate dark theme.
+// Include an default dark theme.
 $dark-primary: mat-palette($md-orange);
 $dark-accent:  mat-palette($mat-deep-orange);
 $dark-warn:    mat-palette($mat-amber, A200, A100, A400);
 $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
-// Include the alternative theme styles inside of a block with a CSS class. You can make this
-// CSS class whatever you want. In this example, any component inside of an element with
-// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .dark-side-theme {
     @include angular-material-theme($dark-theme);
-    background-color: #282c31;
+    background-color: $eerieBlack;
+    .mat-expansion-panel {
+        background-color: $blackOlive
+    }
 }
