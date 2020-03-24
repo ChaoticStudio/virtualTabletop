@@ -1,0 +1,11 @@
+.sheet-text-area,
+.sheet-input-text-area {
+  width: 100%;
+}
+.sheet-input-text-area {
+  height: 10rem;
+  background-image: linear-gradient(to left, transparent 10px, transparent 10px),
+    linear-gradient(to right, transparent 10px, transparent 10px),
+    linear-gradient(transparent 17px, #ccc 17px, #ccc 17px, #c5c4c5 17px);
+  background-size: 100% 18px;
+}

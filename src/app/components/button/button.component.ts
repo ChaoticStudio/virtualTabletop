@@ -4,7 +4,13 @@ import { FieldConfig } from '../../field.interface'
 @Component({
   selector: 'app-button',
   template: `
-    <div class="demo-full-width margin-top" [formGroup]="group">
+    <div *ngIf="group" [formGroup]="group">
+      <button type="submit" mat-raised-button color="field.color">
+        {{ field.label }}
+      </button>
+    </div>
+
+    <div *ngIf="!group">
       <button type="submit" mat-raised-button color="field.color">
         {{ field.label }}
       </button>

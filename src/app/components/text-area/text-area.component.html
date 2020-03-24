@@ -1,0 +1,25 @@
+<mat-form-field *ngIf="group" class="sheet-text-area" [formGroup]="group">
+  <textarea class="sheet-input-text-area" matInput [placeholder]="field.label">
+  </textarea>
+  <ng-container
+    *ngFor="let validation of field.validations"
+    ngProjectAs="mat-error"
+  >
+    <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{
+      validation.message
+    }}</mat-error>
+  </ng-container>
+</mat-form-field>
+
+<mat-form-field *ngIf="!group" class="sheet-text-area">
+  <textarea class="sheet-input-text-area" matInput [placeholder]="field.label">
+  </textarea>
+  <ng-container
+    *ngFor="let validation of field.validations"
+    ngProjectAs="mat-error"
+  >
+    <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{
+      validation.message
+    }}</mat-error>
+  </ng-container>
+</mat-form-field>

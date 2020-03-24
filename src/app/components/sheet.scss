@@ -1,53 +1,60 @@
-// list
 @import 'palette';
 
+
+
+.mat-subheader {
+  width: 100%;
+}
+
+
+:host ::ng-deep .mat-list-item {
+  min-height: 48px;
+  height: auto;
+}
+
+// List
 .sheet-container {
   background-color: $blackOlive;
   border-radius: 5px;
   margin: 5px auto;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-::ng-deep .sheet-list-form form {
   display: flex;
   flex-wrap: wrap;
 }
 
 // list item
-:host {
-  width: 100%;
-}
-
-:host.gt {
+:host(.gt) {
   // Gargantuan
   width: 100%;
 }
-:host.hg {
+:host(.hg) {
   // Huge
   width: 75%;
 }
-:host.lg {
-  // Large
+
+// Large
+:host(.lg) {
+  width: 100%;
   @media screen and (min-width: 992px) {
     width: 50%;
   }
 }
-:host.md {
-  // Medium
+// Medium
+:host(.md) {
   width: 50%;
   @media screen and (min-width: 992px) {
     width: 33%;
   }
 }
-:host.sm {
-  // Small
-  width: 50%;
+// Small
+:host(.sm) {
+  width: 33%;
   @media screen and (min-width: 992px) {
     width: 25%;
   }
 }
-:host.tn {
-  // Tiny
+// Tiny
+:host(.tn) {
   width: 25%;
   ::ng-deep .sheet-input {
     text-align: center;
@@ -61,13 +68,8 @@
   }
 }
 
-:host.auto {
+:host(.auto) {
   width: auto;
-}
-
-// List item
-.full-width {
-  width: 100%;
 }
 
 // skill
@@ -75,9 +77,13 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  height: 3.25rem;
 
   ::ng-deep .mat-form-field-label-wrapper {
-    width: 180%;
+    width: 10ch;
+    label {
+      transform: translateY(-1em) scale(0.75) perspective(100px) translateZ(0.001px) !important;
+    }
   }
 
   .skill-input-field {
@@ -97,11 +103,22 @@
 }
 // checkbox
 .sheet-checkbox-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
   .sheet-checkbox {
     margin: 0 5px;
   }
+}
+
+// input
+.sheet-input {
+  width: 100%;
+}
+
+// select
+.sheet-select {
+  width: 100%;
+}
+
+// list item
+.list-item-container {
+  width: 100%;
 }

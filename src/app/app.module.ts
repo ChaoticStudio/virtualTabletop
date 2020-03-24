@@ -33,7 +33,8 @@ import { GridListComponent } from './components/grid-list/grid-list.component'
 import { ListComponent } from './components/list/list.component'
 import { ListItemComponent } from './components/list-item/list-item.component'
 import { SkillComponent } from './components/skill/skill.component';
-import { InputOptionsMenuComponent } from './sheet-builder/input-options-menu/input-options-menu.component'
+import { InputOptionsMenuComponent } from './sheet-builder/input-options-menu/input-options-menu.component';
+import { TextAreaComponent } from './components/text-area/text-area.component'
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { InputOptionsMenuComponent } from './sheet-builder/input-options-menu/in
     ListComponent,
     ListItemComponent,
     SkillComponent,
-    InputOptionsMenuComponent
+    InputOptionsMenuComponent,
+    TextAreaComponent
   ],
   imports: [
     BrowserModule,

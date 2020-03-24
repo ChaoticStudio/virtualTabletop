@@ -1,12 +1,17 @@
 import { Component, OnInit, HostBinding } from '@angular/core'
-import { FieldConfig } from '../../field.interface'
+import { FieldConfig } from '@/field.interface'
 
 @Component({
   selector: 'app-list-item',
   template: `
     <mat-list-item>
-      <div class="full-width" *ngIf="isObject(); else template">
-        <dynamic-form [fields]="field.value"></dynamic-form>
+      <div class="list-item-container" *ngIf="isObject(); else template">
+        <ng-container
+          *ngFor="let field of field.value"
+          dynamicField
+          [field]="field"
+        >
+        </ng-container>
       </div>
       <ng-template #template>
         <h4 mat-line>{{ field.value.name }}: {{ field.value.value }}</h4>
@@ -17,10 +22,11 @@ import { FieldConfig } from '../../field.interface'
 })
 export class ListItemComponent implements OnInit {
   field: FieldConfig
-  @HostBinding('class') className
+
   constructor() {}
+  @HostBinding('class') class: string;
   ngOnInit() {
-    this.className = this.field.value[0].className
+    this.class = this.field.value[0].className
   }
 
   isObject(): boolean {

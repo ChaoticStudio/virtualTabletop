@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   getCountries() {
-    let countriesJSON = [
+    const countriesJSON = [
       { name: 'Afghanistan', code: 'AF' },
       { name: 'Åland Islands', code: 'AX' },
       { name: 'Albania', code: 'AL' },
@@ -261,7 +261,7 @@ export class RegisterComponent implements OnInit {
       { name: 'Zambia', code: 'ZM' },
       { name: 'Zimbabwe', code: 'ZW' }
     ]
-    let countries = []
+    const countries = []
 
     countriesJSON.forEach(element => {
       countries.push(element.name)

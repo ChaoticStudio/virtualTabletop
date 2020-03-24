@@ -7,20 +7,22 @@ import {
   ViewContainerRef
 } from '@angular/core'
 import { FormGroup } from '@angular/forms'
-import { FieldConfig } from '../../field.interface'
-import { InputComponent } from '../input/input.component'
-import { ButtonComponent } from '../button/button.component'
-import { SelectComponent } from '../select/select.component'
-import { DateComponent } from '../date/date.component'
-import { RadiobuttonComponent } from '../radiobutton/radiobutton.component'
-import { CheckboxComponent } from '../checkbox/checkbox.component'
-import { GridListComponent } from '../grid-list/grid-list.component'
-import { ListComponent } from '../list/list.component'
-import { ListItemComponent } from '../list-item/list-item.component'
-import { SkillComponent } from '../skill/skill.component'
+import { FieldConfig } from '@/field.interface'
+import { InputComponent } from '@/components/input/input.component'
+import { TextAreaComponent } from '@/components/text-area/text-area.component'
+import { ButtonComponent } from '@/components/button/button.component'
+import { SelectComponent } from '@/components/select/select.component'
+import { DateComponent } from '@/components/date/date.component'
+import { RadiobuttonComponent } from '@/components/radiobutton/radiobutton.component'
+import { CheckboxComponent } from '@/components/checkbox/checkbox.component'
+import { GridListComponent } from '@/components/grid-list/grid-list.component'
+import { ListComponent } from '@/components/list/list.component'
+import { ListItemComponent } from '@/components/list-item/list-item.component'
+import { SkillComponent } from '@/components/skill/skill.component'
 
 const componentMapper = {
   input: InputComponent,
+  textarea: TextAreaComponent,
   button: ButtonComponent,
   select: SelectComponent,
   date: DateComponent,

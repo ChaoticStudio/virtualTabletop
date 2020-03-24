@@ -32,7 +32,7 @@ export class SheetBuilderComponent implements OnInit {
     Race: ['Human', 'Dwarf', 'Elf']
   }
 
-  @ViewChild(DynamicFormComponent, { static: true })
+  @ViewChild(DynamicFormComponent)
   previewForm: DynamicFormComponent
   sheetPreview: FieldConfig[] = [
     {
@@ -71,8 +71,9 @@ export class SheetBuilderComponent implements OnInit {
                 {
                   type: 'select',
                   className: 'sm',
-                  name: 'Background',
-                  label: 'Background'
+                  name: 'Race',
+                  label: 'Race',
+                  options: ['Human', 'Dwarf', 'Elf']
                 }
               ]
             },
@@ -82,9 +83,8 @@ export class SheetBuilderComponent implements OnInit {
                 {
                   type: 'select',
                   className: 'sm',
-                  name: 'Race',
-                  label: 'Race',
-                  options: ['Human', 'Dwarf', 'Elf']
+                  name: 'Background',
+                  label: 'Background'
                 }
               ]
             },
@@ -209,7 +209,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Strength',
                   label: 'Strength'
@@ -221,7 +221,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Dexterity',
                   label: 'Dexterity'
@@ -233,7 +233,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Constitution',
                   label: 'Constitution'
@@ -245,7 +245,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Intelligence',
                   label: 'Intelligence'
@@ -257,7 +257,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Wisdom',
                   label: 'Wisdom'
@@ -269,7 +269,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Charisma',
                   label: 'Charisma'
@@ -291,7 +291,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Acrobatics',
                   label: 'Acrobatics'
@@ -303,7 +303,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Animal Handling',
                   label: 'Animal Handling'
@@ -315,7 +315,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Arcana',
                   label: 'Arcana'
@@ -327,7 +327,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Athletics',
                   label: 'Athletics'
@@ -339,7 +339,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Deception',
                   label: 'Deception'
@@ -351,7 +351,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'History',
                   label: 'History'
@@ -363,7 +363,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Insight',
                   label: 'Insight'
@@ -375,7 +375,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Intimidation',
                   label: 'Intimidation'
@@ -387,7 +387,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Investigation',
                   label: 'Investigation'
@@ -399,7 +399,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Medicine',
                   label: 'Medicine'
@@ -411,7 +411,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Nature',
                   label: 'Nature'
@@ -423,7 +423,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Perception',
                   label: 'Perception'
@@ -435,7 +435,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Performance',
                   label: 'Performance'
@@ -447,7 +447,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Persuasion',
                   label: 'Persuasion'
@@ -459,7 +459,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Religion',
                   label: 'Religion'
@@ -471,7 +471,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Sleight of Hand',
                   label: 'Sleight of Hand'
@@ -483,7 +483,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Stealth',
                   label: 'Stealth'
@@ -495,7 +495,7 @@ export class SheetBuilderComponent implements OnInit {
               value: [
                 {
                   type: 'skill',
-                  className: 'sm',
+                  className: 'md',
                   inputType: 'number',
                   name: 'Survival',
                   label: 'Survival'
@@ -598,15 +598,36 @@ export class SheetBuilderComponent implements OnInit {
             },
             {
               type: 'listitem',
-              value: [{ type: 'checkbox', name: 'Success', value: '3' }]
+              value: [
+                {
+                  type: 'checkbox',
+                  name: 'Success',
+                  value: '3',
+                  className: 'lg'
+                }
+              ]
             },
             {
               type: 'listitem',
-              value: [{ type: 'checkbox', name: 'Failures', value: '3' }]
+              value: [
+                {
+                  type: 'checkbox',
+                  name: 'Failures',
+                  value: '3',
+                  className: 'lg'
+                }
+              ]
             },
             {
               type: 'listitem',
-              value: [{ type: 'textarea', name: 'Items', label: 'Items' }]
+              value: [
+                {
+                  type: 'textarea',
+                  name: 'Items',
+                  label: 'Items',
+                  className: 'lg'
+                }
+              ]
             }
           ]
         }

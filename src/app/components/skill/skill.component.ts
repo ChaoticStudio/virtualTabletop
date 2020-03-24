@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms'
 @Component({
   selector: 'app-skill',
   template: `
-    <div class="skill full-width" [formGroup]="group">
+    <div *ngIf="group" class="skill" [formGroup]="group">
       <mat-checkbox
         class="skill-checkbox"
         [formControlName]="field.name"
@@ -16,6 +16,23 @@ import { FormGroup } from '@angular/forms'
           class="skill-input"
           matInput
           [formControlName]="field.name"
+          placeholder="{{ placeholder }}"
+          type="number"
+          max="999"
+          (input)="onValueChange($event.target.value)"
+        />
+      </mat-form-field>
+
+      <p class="skill-label">{{ field.label }}</p>
+    </div>
+
+    <div *ngIf="!group" class="skill">
+      <mat-checkbox class="skill-checkbox"></mat-checkbox>
+
+      <mat-form-field class="skill-input-field">
+        <input
+          class="skill-input"
+          matInput
           placeholder="{{ placeholder }}"
           type="number"
           max="999"
