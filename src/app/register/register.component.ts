@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { AuthService } from '../auth.service'
+import { AuthService } from '@/auth.service'
 import { Router } from '@angular/router'
 import { Validators } from '@angular/forms'
-import { FieldConfig } from './../field.interface'
-import { DynamicFormComponent } from './../components/dynamic-form/dynamic-form.component'
+import { FieldConfig } from '@/field.interface'
+import { DynamicFormComponent } from '@/components/common/dynamic-form/dynamic-form.component'
 
 @Component({
   selector: 'app-register',

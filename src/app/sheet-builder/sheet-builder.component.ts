@@ -5,7 +5,7 @@ import { UserdataService } from '@/userdata.service'
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { map, startWith } from 'rxjs/operators'
-import { DynamicFormComponent } from '@/components/dynamic-form/dynamic-form.component'
+import { DynamicFormComponent } from '@/components/common/dynamic-form/dynamic-form.component'
 
 @Component({
   selector: 'app-sheet-builder',

@@ -21,20 +21,20 @@ import { LoginComponent } from './login/login.component'
 import { TokenInterceptorService } from './token-interceptor.service'
 import { AreaOfEffectComponent } from './area-of-effect/area-of-effect.component'
 import { SheetBuilderComponent } from './sheet-builder/sheet-builder.component'
-import { InputComponent } from './components/input/input.component'
-import { ButtonComponent } from './components/button/button.component'
-import { SelectComponent } from './components/select/select.component'
-import { DateComponent } from './components/date/date.component'
-import { RadiobuttonComponent } from './components/radiobutton/radiobutton.component'
-import { CheckboxComponent } from './components/checkbox/checkbox.component'
-import { DynamicFieldDirective } from './components/dynamic-field/dynamic-field.directive'
-import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component'
-import { GridListComponent } from './components/grid-list/grid-list.component'
-import { ListComponent } from './components/list/list.component'
-import { ListItemComponent } from './components/list-item/list-item.component'
-import { SkillComponent } from './components/skill/skill.component';
+import { InputComponent } from './components/common/input/input.component'
+import { ButtonComponent } from './components/common/button/button.component'
+import { SelectComponent } from './components/common/select/select.component'
+import { DateComponent } from './components/common/date/date.component'
+import { RadioButtonComponent } from './components/common/radiobutton/radiobutton.component'
+import { CheckboxComponent } from './components/common/checkbox/checkbox.component'
+import { DynamicFieldDirective } from './components/common/dynamic-field/dynamic-field.directive'
+import { DynamicFormComponent } from './components/common/dynamic-form/dynamic-form.component'
+import { GridListComponent } from './components/common/grid-list/grid-list.component'
+import { ListComponent } from './components/common/list/list.component'
+import { ListItemComponent } from './components/common/list-item/list-item.component'
+import { SkillComponent } from './components/common/skill/skill.component';
+import { TextAreaComponent } from './components/common/text-area/text-area.component'
 import { InputOptionsMenuComponent } from './sheet-builder/input-options-menu/input-options-menu.component';
-import { TextAreaComponent } from './components/text-area/text-area.component'
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component'
     ButtonComponent,
     SelectComponent,
     DateComponent,
-    RadiobuttonComponent,
+    RadioButtonComponent,
     CheckboxComponent,
     DynamicFieldDirective,
     DynamicFormComponent,
@@ -89,12 +89,13 @@ import { TextAreaComponent } from './components/text-area/text-area.component'
     ButtonComponent,
     SelectComponent,
     DateComponent,
-    RadiobuttonComponent,
+    RadioButtonComponent,
     CheckboxComponent,
     GridListComponent,
     ListComponent,
     ListItemComponent,
-    SkillComponent
+    SkillComponent,
+    TextAreaComponent
   ]
 })
 export class AppModule {}

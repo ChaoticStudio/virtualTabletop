@@ -7,7 +7,7 @@ import {
   Output
 } from '@angular/core'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
-import { FieldConfig, Validator } from '../../field.interface'
+import { FieldConfig, Validator } from '@/field.interface'
 
 @Component({
   exportAs: 'dynamicForm',

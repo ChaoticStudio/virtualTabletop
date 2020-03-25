@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { FieldConfig } from './../field.interface'
-import { CharacterSheetService } from './../character-sheet.service'
-import { DynamicFormComponent } from '../components/dynamic-form/dynamic-form.component'
+import { FieldConfig } from '@/field.interface'
+import { CharacterSheetService } from '@/character-sheet.service'
+import { DynamicFormComponent } from '@/components/common/dynamic-form/dynamic-form.component'
 
 @Component({
   selector: 'app-character-sheet',
