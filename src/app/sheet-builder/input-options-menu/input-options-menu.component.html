@@ -1,1 +1,210 @@
-<p>input-options-menu works!</p>
+<form class="tools" [formGroup]="form">
+    <mat-form-field>
+      <mat-select
+        formControlName="system"
+        placeholder="System template"
+        (selectionChange)="changeTemplate($event.value)"
+      >
+        <mat-option *ngFor="let system of systems" [value]="system">{{
+          system
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Container
+          </mat-panel-title>
+          <mat-panel-description>
+            For grouping stuff together
+            <mat-icon>dashboard</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div [formGroup]="form">
+          <mat-form-field on>
+            <input
+              matInput
+              formControlName="label"
+              placeholder="Title"
+              type="text"
+            />
+          </mat-form-field>
+          <div>
+            <label class="radio-label-padding">Direction:</label>
+            <mat-radio-group formControlName="direction">
+              <mat-radio-button class="radio-btn" value="Horizontal"
+                >Horizontal</mat-radio-button
+              >
+              <mat-radio-button class="radio-btn" value="Vertical"
+                >Vertical</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="hasBorder"
+              >Has border</mat-slide-toggle
+            >
+          </div>
+        </div>
+        <button
+          class="add-button"
+          mat-fab
+          (click)="addProperty('Container')"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Input
+          </mat-panel-title>
+          <mat-panel-description>
+            Atributes, Hit Point, Coins, etc...
+            <mat-icon>short_text</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="label"
+            placeholder="Label"
+            type="text"
+          />
+        </mat-form-field>
+        <div>
+          <label class="radio-label-padding">Input type:</label>
+          <mat-radio-group formControlName="inputType">
+            <mat-radio-button class="radio-btn" value="text"
+              >Text</mat-radio-button
+            >
+            <mat-radio-button class="radio-btn" value="number"
+              >Number</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <button class="add-button" mat-fab (click)="addProperty('Input')">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Select
+          </mat-panel-title>
+          <mat-panel-description>
+            Race, Class, Occupations, etc...
+            <mat-icon>expand_more</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="label"
+            placeholder="Label"
+            type="text"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="text"
+            placeholder="Dictionary"
+            aria-label="Dictionary"
+            matInput
+            formControlName="dictionary"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <div>
+          <mat-slide-toggle formControlName="isMultipleSelection"
+            >Multiple Selection</mat-slide-toggle
+          >
+          <mat-hint align="end">Useful for multiclass option</mat-hint>
+        </div>
+        <button class="add-button" mat-fab (click)="addProperty('Select')">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Text area
+          </mat-panel-title>
+          <mat-panel-description>
+            Backstory, Role Play Notes, etc...
+            <mat-icon>subject</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="label"
+            placeholder="Label"
+            type="text"
+          />
+        </mat-form-field>
+        <button
+          class="add-button"
+          mat-fab
+          (click)="addProperty('Textarea')"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Checkbox
+          </mat-panel-title>
+          <mat-panel-description>
+            Skills, Inspiration
+            <mat-icon>check_box</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="label"
+            placeholder="Label"
+            type="text"
+          />
+        </mat-form-field>
+        <div>
+          <mat-slide-toggle formControlName="hasNumber"
+            >Has Number</mat-slide-toggle
+          >
+        </div>
+        <mat-form-field *ngIf="form.value.hasNumber">
+          <input
+            matInput
+            formControlName="label"
+            placeholder="Value or Rule"
+            type="text"
+          />
+        </mat-form-field>
+        <button
+          class="add-button"
+          mat-fab
+          (click)="addProperty('Checkbox')"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <button class="add-button" mat-fab (click)="saveTemplate()">
+      <mat-icon>get_app</mat-icon>
+    </button>
+  </form>
